@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:e_sharing/LoginPage/Login.dart';
+import 'package:e_sharing/ui/pages/LoginPage/Login.dart';
 import 'package:flutter/material.dart';
 import 'theme.dart';
 

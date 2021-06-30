@@ -19,12 +19,12 @@ TextStyle displayLarge = TextStyle(
   height: 1.1,
 );
 
-TextStyle displayMediumLogin = TextStyle(
-    fontFamily: 'BalooTamma2',
-    fontSize: 50,
-    height: 1.1,
-    fontWeight: FontWeight.w700,
-    color: primaryColor);
+TextStyle displayMedium = TextStyle(
+  fontFamily: 'BalooTamma2',
+  fontSize: 50,
+  height: 1.1,
+  fontWeight: FontWeight.w700,
+);
 
 TextStyle displaySmall = GoogleFonts.balooTamma(
   fontSize: 37,

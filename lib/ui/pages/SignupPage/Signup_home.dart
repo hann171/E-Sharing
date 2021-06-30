@@ -1,3 +1,6 @@
+import 'package:e_sharing/ui/pages/LoginPage/Login.dart';
+import 'package:e_sharing/ui/pages/SignupPage/Signup_donatur.dart';
+import 'package:e_sharing/ui/pages/SignupPage/Signup_penerima1.dart';
 import 'package:flutter/material.dart';
 import 'package:e_sharing/theme.dart';
 
@@ -9,8 +12,57 @@ class SignupHome extends StatefulWidget {
 }
 
 class _SignupHomeState extends State<SignupHome> {
+  int selectedIndex = -1;
   @override
   Widget build(BuildContext context) {
+    Widget option(int index, String role) {
+      return Padding(
+        padding: const EdgeInsets.only(bottom: 16),
+        child: GestureDetector(
+          onTap: () {
+            setState(() {
+              selectedIndex = index;
+            });
+          },
+          child: Container(
+            padding: EdgeInsets.only(left: 16, top: 16, bottom: 16),
+            decoration: BoxDecoration(
+              color: selectedIndex == index ? primaryColor : whiteColor,
+              border: Border.all(
+                  color: selectedIndex == index
+                      ? Color(0x00ffffff)
+                      : Color(0xff4D5B7C)),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          role,
+                          style: TextStyle(
+                              color: selectedIndex == index
+                                  ? whiteColor
+                                  : blackColor,
+                              fontFamily: 'BalooTamma2',
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500),
+                        ),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
     return Scaffold(
         backgroundColor: whiteColor,
         resizeToAvoidBottomInset: true,
@@ -24,12 +76,12 @@ class _SignupHomeState extends State<SignupHome> {
                 bottom: MediaQuery.of(context).viewInsets.bottom),
             child:
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-              //NOTE : Text Masuk
+              //NOTE : Text Daftar
               Container(
                 child: (Text(
                   'Daftar',
                   textAlign: TextAlign.start,
-                  style: displayMediumLogin,
+                  style: displayMedium.copyWith(color: primaryColor)
                 )),
               ),
 
@@ -72,7 +124,12 @@ class _SignupHomeState extends State<SignupHome> {
               ),
 
               //NOTE: Select Option Button
-              
+              option(0, 'Donatur'),
+              option(1, 'Penerima'),
+
+              SizedBox(
+                height: 80,
+              ),
 
               //NOTE: Button Login
               Container(
@@ -84,7 +141,10 @@ class _SignupHomeState extends State<SignupHome> {
                     children: <Widget>[
                       Positioned.fill(
                         child: Container(
-                          decoration: BoxDecoration(color: primaryColor),
+                          decoration: BoxDecoration(
+                              color: selectedIndex == -1
+                                  ? lightenColor
+                                  : primaryColor),
                         ),
                       ),
                       Center(
@@ -93,15 +153,24 @@ class _SignupHomeState extends State<SignupHome> {
                               padding: EdgeInsets.symmetric(
                                 vertical: 16,
                               ),
-                              primary: whiteColor,
+                              primary:
+                                  selectedIndex == -1 ? greyColor : whiteColor,
                               textStyle: h5,
                               minimumSize: Size(
                                   MediaQuery.of(context).size.width -
                                       defaultPaddingLR,
                                   56)),
-                          onPressed: () {},
+                          onPressed: () {
+                            // ignore: unnecessary_statements
+                            selectedIndex == -1 ? null : Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => selectedIndex == 0
+                                        ? DaftarDonatur()
+                                        : DaftarPenerima1()));
+                          },
                           child: Text(
-                            'Login',
+                            'Lanjutkan',
                             style: buttonText,
                           ),
                         ),
@@ -112,24 +181,24 @@ class _SignupHomeState extends State<SignupHome> {
               ),
 
               SizedBox(
-                height: 90,
+                height: 92,
               ),
 
               Container(
                 child: InkWell(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => SignupHome()));
+                        MaterialPageRoute(builder: (context) => Login()));
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Belum punya akun ?',
+                        'Sudah punya akun ?',
                         style: captionText,
                       ),
                       Text(
-                        'Daftar',
+                        'Masuk',
                         style: captionTextHyperlink,
                       ),
                     ],
