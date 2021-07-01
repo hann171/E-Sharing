@@ -1,23 +1,20 @@
 import 'package:e_sharing/ui/pages/LoginPage/Login.dart';
 import 'package:flutter/material.dart';
 import 'package:e_sharing/theme.dart';
+import 'package:get/get.dart';
 
-class DaftarDonatur extends StatefulWidget {
-  const DaftarDonatur({Key? key}) : super(key: key);
+class DaftarPenerima2 extends StatefulWidget {
+  DaftarPenerima2({Key? key}) : super(key: key);
 
   @override
-  _DaftarDonaturState createState() => _DaftarDonaturState();
+  _DaftarPenerima2State createState() => _DaftarPenerima2State();
 }
 
-class _DaftarDonaturState extends State<DaftarDonatur> {
+class _DaftarPenerima2State extends State<DaftarPenerima2> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController nikController = TextEditingController();
-    TextEditingController namadepanController = TextEditingController();
-    TextEditingController namabelakangController = TextEditingController();
-    TextEditingController alamatController = TextEditingController();
-    TextEditingController telpController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
+    TextEditingController norekController = TextEditingController();
+    TextEditingController descekoController = TextEditingController();
 
     return Scaffold(
       backgroundColor: whiteColor,
@@ -36,7 +33,7 @@ class _DaftarDonaturState extends State<DaftarDonatur> {
               //NOTE : Text Masuk
               Container(
                 child: (Text(
-                  'Daftar Donatur',
+                  'Daftar Penerima',
                   textAlign: TextAlign.start,
                   style: displaySmall.copyWith(color: primaryColor),
                 )),
@@ -56,12 +53,12 @@ class _DaftarDonaturState extends State<DaftarDonatur> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'NIK',
+                            'No. rekening',
                             style: bodyTextField,
                           ),
                         ),
                         TextFormField(
-                          controller: nikController,
+                          controller: norekController,
                           decoration: InputDecoration(
                             contentPadding: EdgeInsets.all(16),
                             focusedBorder: OutlineInputBorder(
@@ -70,7 +67,7 @@ class _DaftarDonaturState extends State<DaftarDonatur> {
                             enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(10),
                                 borderSide: BorderSide(color: greyColor)),
-                            hintText: 'Masukan NIK',
+                            hintText: 'Masukan No.rekening',
                             hintStyle: bodyTextFieldHint,
                           ),
                           keyboardType: TextInputType.number,
@@ -85,127 +82,12 @@ class _DaftarDonaturState extends State<DaftarDonatur> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Nama depan',
+                            'Deskripsi singkat kondisi ekonomi',
                             style: bodyTextField,
                           ),
                         ),
                         TextFormField(
-                          controller: namadepanController,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(16),
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: accentColor)),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: greyColor)),
-                            hintText: 'Masukan Nama depan',
-                            hintStyle: bodyTextFieldHint,
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Nama belakang',
-                            style: bodyTextField,
-                          ),
-                        ),
-                        TextFormField(
-                          controller: namabelakangController,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(16),
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: accentColor)),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: greyColor)),
-                            hintText: 'Masukan Nama belakang',
-                            hintStyle: bodyTextFieldHint,
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Alamat',
-                            style: bodyTextField,
-                          ),
-                        ),
-                        TextFormField(
-                          controller: alamatController,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(16),
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: accentColor)),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: greyColor)),
-                            hintText: 'Masukan Alamat',
-                            hintStyle: bodyTextFieldHint,
-                          ),
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'No. Telp',
-                            style: bodyTextField,
-                          ),
-                        ),
-                        TextFormField(
-                          controller: telpController,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(16),
-                            focusedBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: accentColor)),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                                borderSide: BorderSide(color: greyColor)),
-                            hintText: 'Masukan no. telp',
-                            hintStyle: bodyTextFieldHint,
-                          ),
-                          keyboardType: TextInputType.phone,
-                        )
-                      ],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Column(
-                      children: [
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            'Password',
-                            style: bodyTextField,
-                          ),
-                        ),
-                        TextFormField(
-                          controller: passwordController,
-                          obscureText: true,
-                          obscuringCharacter: "*",
+                          controller: descekoController,
                           decoration: InputDecoration(
                               contentPadding: EdgeInsets.all(16),
                               focusedBorder: OutlineInputBorder(
@@ -214,8 +96,79 @@ class _DaftarDonaturState extends State<DaftarDonatur> {
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
                                   borderSide: BorderSide(color: greyColor)),
-                              hintText: 'Masukan password',
-                              hintStyle: bodyTextFieldHint),
+                              hintText:
+                                  'contoh: jumlah pendapatan, jumlah tanggungan,dll',
+                              hintStyle: bodyTextFieldHint,
+                              hintMaxLines: 2),
+                          maxLines: 3,
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Surat PHK',
+                            style: bodyTextField,
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width -
+                              (2 * defaultPaddingLR),
+                          height: 179,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color(0xff252525).withOpacity(0.08),
+                                    blurRadius: 30,
+                                    offset: Offset(0, 4))
+                              ],
+                              color: whiteColor),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                            image: AssetImage('assets/img/upgambar.png'),
+                            fit: BoxFit.cover,
+                          ))),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Foto rumah tampak depan',
+                            style: bodyTextField,
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width -
+                              (2 * defaultPaddingLR),
+                          height: 179,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color(0xff252525).withOpacity(0.08),
+                                    blurRadius: 30,
+                                    offset: Offset(0, 4))
+                              ],
+                              color: whiteColor),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                            image: AssetImage('assets/img/upgambar.png'),
+                            fit: BoxFit.cover,
+                          ))),
                         )
                       ],
                     ),
@@ -255,9 +208,7 @@ class _DaftarDonaturState extends State<DaftarDonatur> {
                                   MediaQuery.of(context).size.width -
                                       defaultPaddingLR,
                                   56)),
-                          onPressed: () {
-                            // ignore: unnecessary_statements
-                          },
+                          onPressed: () {},
                           child: Text(
                             'Daftar',
                             style: buttonText,
@@ -293,6 +244,9 @@ class _DaftarDonaturState extends State<DaftarDonatur> {
                     ],
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 20,
               )
             ]),
           ],

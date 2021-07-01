@@ -3,6 +3,7 @@ import 'package:e_sharing/ui/pages/SignupPage/Signup_donatur.dart';
 import 'package:e_sharing/ui/pages/SignupPage/Signup_penerima1.dart';
 import 'package:flutter/material.dart';
 import 'package:e_sharing/theme.dart';
+import 'package:get/get.dart';
 
 class SignupHome extends StatefulWidget {
   SignupHome({Key? key}) : super(key: key);
@@ -78,11 +79,9 @@ class _SignupHomeState extends State<SignupHome> {
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               //NOTE : Text Daftar
               Container(
-                child: (Text(
-                  'Daftar',
-                  textAlign: TextAlign.start,
-                  style: displayMedium.copyWith(color: primaryColor)
-                )),
+                child: (Text('Daftar',
+                    textAlign: TextAlign.start,
+                    style: displayMedium.copyWith(color: primaryColor))),
               ),
 
               SizedBox(
@@ -128,7 +127,7 @@ class _SignupHomeState extends State<SignupHome> {
               option(1, 'Penerima'),
 
               SizedBox(
-                height: 80,
+                height: 100,
               ),
 
               //NOTE: Button Login
@@ -162,12 +161,11 @@ class _SignupHomeState extends State<SignupHome> {
                                   56)),
                           onPressed: () {
                             // ignore: unnecessary_statements
-                            selectedIndex == -1 ? null : Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => selectedIndex == 0
-                                        ? DaftarDonatur()
-                                        : DaftarPenerima1()));
+                            selectedIndex == -1
+                                ? null
+                                : selectedIndex == 0
+                                    ? Get.to(() => DaftarDonatur())
+                                    : Get.to(() => DaftarPenerima1());
                           },
                           child: Text(
                             'Lanjutkan',
@@ -187,14 +185,13 @@ class _SignupHomeState extends State<SignupHome> {
               Container(
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Login()));
+                    Get.to(Login());
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Sudah punya akun ?',
+                        'Sudah punya akun? ',
                         style: captionText,
                       ),
                       Text(

@@ -1,6 +1,8 @@
-import 'package:e_sharing/ui/pages/LoginPage/Login.dart';
+import 'package:e_sharing/ui/pages/SignupPage/Signup_penerima2.dart';
 import 'package:flutter/material.dart';
 import 'package:e_sharing/theme.dart';
+import 'package:flutter/services.dart';
+import 'package:get/get.dart';
 
 class DaftarPenerima1 extends StatefulWidget {
   const DaftarPenerima1({Key? key}) : super(key: key);
@@ -72,6 +74,7 @@ class _DaftarPenerima1State extends State<DaftarPenerima1> {
                             hintText: 'Masukan NIK',
                             hintStyle: bodyTextFieldHint,
                           ),
+                          keyboardType: TextInputType.number,
                         )
                       ],
                     ),
@@ -184,6 +187,7 @@ class _DaftarPenerima1State extends State<DaftarPenerima1> {
                             hintText: 'Masukan no. telp',
                             hintStyle: bodyTextFieldHint,
                           ),
+                          keyboardType: TextInputType.phone,
                         )
                       ],
                     ),
@@ -253,7 +257,7 @@ class _DaftarPenerima1State extends State<DaftarPenerima1> {
                                       defaultPaddingLR,
                                   56)),
                           onPressed: () {
-                            // ignore: unnecessary_statements
+                            Get.to(() => DaftarPenerima2());
                           },
                           child: Text(
                             'Lanjutkan',
@@ -273,14 +277,16 @@ class _DaftarPenerima1State extends State<DaftarPenerima1> {
               Container(
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Login()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DaftarPenerima2()));
                   },
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        'Sudah punya akun ?',
+                        'Sudah punya akun? ',
                         style: captionText,
                       ),
                       Text(

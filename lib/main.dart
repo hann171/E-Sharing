@@ -1,4 +1,9 @@
 import 'package:e_sharing/Splash_screen.dart';
+import 'package:e_sharing/theme.dart';
+import 'package:e_sharing/ui/pages/main_page.dart';
+import 'package:e_sharing/ui/widgets/404.dart';
+import 'package:e_sharing/ui/widgets/EmptyNotification.dart';
+import 'package:e_sharing/ui/widgets/Welldone.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -13,8 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'BalooTamma2'),
-      home: SplashScreen(),
+      theme: ThemeData(fontFamily: 'BalooTamma2', backgroundColor: whiteColor),
+      home: MainPage(),
     );
   }
 }

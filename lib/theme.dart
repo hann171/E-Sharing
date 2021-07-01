@@ -26,23 +26,26 @@ TextStyle displayMedium = TextStyle(
   fontWeight: FontWeight.w700,
 );
 
-TextStyle displaySmall = GoogleFonts.balooTamma(
-  fontSize: 37,
-  height: 1.2,
-);
+TextStyle displaySmall = TextStyle(
+    fontFamily: 'BalooTamma2',
+    fontSize: 37,
+    height: 1.2,
+    fontWeight: FontWeight.w700);
 
 TextStyle h1 = GoogleFonts.balooTamma(
   fontSize: 29,
   height: 1.38,
 );
-TextStyle h2 = GoogleFonts.balooTamma(
-  fontSize: 24,
-  height: 1.35,
-);
-TextStyle h3 = GoogleFonts.balooTamma(
-  fontSize: 21,
-  height: 1.35,
-);
+TextStyle h2Text = TextStyle(
+    fontFamily: 'BalooTamma2',
+    fontSize: 24,
+    height: 1.35,
+    fontWeight: FontWeight.w700);
+TextStyle h3Text = TextStyle(
+    fontSize: 21,
+    height: 1.35,
+    fontFamily: 'BalooTamma2',
+    fontWeight: FontWeight.w700);
 TextStyle h4 = GoogleFonts.balooTamma(
   fontSize: 19,
   height: 1.38,

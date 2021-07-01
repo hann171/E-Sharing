@@ -87,6 +87,7 @@ class _LoginState extends State<Login> {
                                 hintText: 'Masukan no. telp',
                                 hintStyle: bodyTextFieldHint,
                               ),
+                              keyboardType: TextInputType.phone,
                             )
                           ],
                         ),
@@ -149,40 +150,38 @@ class _LoginState extends State<Login> {
                     width: MediaQuery.of(context).size.width -
                         (2 * defaultPaddingLR),
                     // ignore: dead_code
-                    child: isLoading ? SpinKitFadingCircle(
-                      size: 45,
-                      color: primaryColor,
-                    ) : ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Stack(
-                        children: <Widget>[
-                          Positioned.fill(
-                            child: Container(
-                              decoration: BoxDecoration(color: primaryColor),
+                    child: isLoading ? SpinKitCircle(size: 45, color: primaryColor,) : ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Stack(
+                              children: <Widget>[
+                                Positioned.fill(
+                                  child: Container(
+                                    decoration:
+                                        BoxDecoration(color: primaryColor),
+                                  ),
+                                ),
+                                Center(
+                                  child: TextButton(
+                                    style: TextButton.styleFrom(
+                                        padding: EdgeInsets.symmetric(
+                                          vertical: 16,
+                                        ),
+                                        primary: whiteColor,
+                                        textStyle: h5,
+                                        minimumSize: Size(
+                                            MediaQuery.of(context).size.width -
+                                                defaultPaddingLR,
+                                            56)),
+                                    onPressed: () {},
+                                    child: Text(
+                                      'Login',
+                                      style: buttonText,
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
                           ),
-                          Center(
-                            child: TextButton(
-                              style: TextButton.styleFrom(
-                                  padding: EdgeInsets.symmetric(
-                                    vertical: 16,
-                                  ),
-                                  primary: whiteColor,
-                                  textStyle: h5,
-                                  minimumSize: Size(
-                                      MediaQuery.of(context).size.width -
-                                          defaultPaddingLR,
-                                      56)),
-                              onPressed: () {},
-                              child: Text(
-                                'Login',
-                                style: buttonText,
-                              ),
-                            ),
-                          )
-                        ],
-                      ),
-                    ),
                   ),
                 ]),
                 SizedBox(height: 92),

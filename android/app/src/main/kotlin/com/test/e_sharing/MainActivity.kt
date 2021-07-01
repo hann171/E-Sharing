@@ -1,4 +1,4 @@
-package com.example.e_sharing
+package com.test.e_sharing
 
 import io.flutter.embedding.android.FlutterActivity
 
