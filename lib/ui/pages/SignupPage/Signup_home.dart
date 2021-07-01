@@ -154,7 +154,7 @@ class _SignupHomeState extends State<SignupHome> {
                               ),
                               primary:
                                   selectedIndex == -1 ? greyColor : whiteColor,
-                              textStyle: h5,
+                              textStyle: h5Text,
                               minimumSize: Size(
                                   MediaQuery.of(context).size.width -
                                       defaultPaddingLR,

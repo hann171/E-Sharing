@@ -10,18 +10,18 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Container(
-          width: double.infinity,
-          height: 215,
-          color: primaryColor,
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 20, right: 20, top: 64),
-          child: ListView(
-            children: [
-              Column(
+    return Scaffold(
+      body: ListView(
+        children: [
+          Stack(children: [
+            Container(
+              width: double.infinity,
+              height: 215,
+              color: primaryColor,
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 52, left: 20, right: 20, bottom: 64),
+              child: Column(
                 children: [
                   //HEADER
                   Container(
@@ -74,16 +74,36 @@ class _HomePageState extends State<HomePage> {
 
                   //LIST REKOMENDASI PENERIMA
                   SectionRecommendation(),
+                  SizedBox(
+                    height: 28,
+                  ),
+
                   //CTA
+                  CTABanner(),
+                  SizedBox(
+                    height: 28,
+                  ),
+
                   //LIST LOKER
+                  SectionLoker(),
+                  SizedBox(
+                    height: 28,
+                  ),
+
                   //LIST ARTIKEL
+                  SectionArtikel(),
+                  SizedBox(
+                    height: 28,
+                  ),
+
                   //LIST UCAPAN TERIMAKASIH
+                  SectionUcapan()
                 ],
-              )
-            ],
-          ),
-        ),
-      ],
+              ),
+            ),
+          ])
+        ],
+      ),
     );
   }
 }

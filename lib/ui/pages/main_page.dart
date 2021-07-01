@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
           ),
           SafeArea(
               child: Container(
-            color: whiteColor,
+            color: darkenwhiteColor,
           )),
           SafeArea(
             child: PageView(

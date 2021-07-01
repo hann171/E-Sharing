@@ -1,7 +1,7 @@
 part of 'widgets.dart';
 
-class SectionRecommendation extends StatelessWidget {
-  const SectionRecommendation({Key? key}) : super(key: key);
+class SectionArtikel extends StatelessWidget {
+  const SectionArtikel({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class SectionRecommendation extends StatelessWidget {
             children: [
               Container(
                 child: Text(
-                  'Pilihan kami',
+                  'Artikel bisnis',
                   style: bodyTextField,
                 ),
               ),
@@ -31,18 +31,18 @@ class SectionRecommendation extends StatelessWidget {
             height: 8,
           ),
           Container(
-            height: 208,
+            height: 152,
             width: double.infinity,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
                 Row(
-                  children: dummyPenerima
+                  children: dummyArtikel
                       .map<Widget>((e) => Padding(
                             padding: EdgeInsets.only(
-                                right: (e == dummyPenerima.last) ? 0 : 8,
+                                right: (e == dummyArtikel.last) ? 0 : 8,
                                 bottom: 8),
-                            child: CardRecommendation(e),
+                            child: CardArtikel(e),
                           ))
                       .toList(),
                 )

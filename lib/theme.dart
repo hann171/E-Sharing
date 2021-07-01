@@ -9,6 +9,7 @@ Color secondaryColor = Color(0xffB33A87);
 Color accentColor = Color(0xffF25F6F);
 Color lightenColor = Color(0xffFFD8E0);
 Color whiteColor = Color(0xffFFFFFF);
+Color darkenwhiteColor = Color(0xffF6F6F6);
 Color lightGreyColor = Color(0xffE1E1E1);
 Color greyColor = Color(0xffA8A8A8);
 Color blackColor = Color(0xff252525);
@@ -50,7 +51,8 @@ TextStyle h4 = GoogleFonts.balooTamma(
   fontSize: 19,
   height: 1.38,
 );
-TextStyle h5 = GoogleFonts.balooTamma(
+TextStyle h5Text = TextStyle(
+  fontFamily: 'BalooTamma2',
   fontSize: 18,
   height: 1.35,
 );
@@ -99,8 +101,8 @@ TextStyle captionTextLogin = TextStyle(
     height: 1.4,
     color: accentColor);
 
-TextStyle footnoteText = GoogleFonts.balooTamma(
+TextStyle footnoteText = TextStyle(
   fontSize: 12,
-  fontWeight: FontWeight.w400,
   height: 1,
+  fontFamily: 'BalooTamma2',
 );

@@ -251,7 +251,7 @@ class _DaftarPenerima1State extends State<DaftarPenerima1> {
                                 vertical: 16,
                               ),
                               primary: whiteColor,
-                              textStyle: h5,
+                              textStyle: h5Text,
                               minimumSize: Size(
                                   MediaQuery.of(context).size.width -
                                       defaultPaddingLR,

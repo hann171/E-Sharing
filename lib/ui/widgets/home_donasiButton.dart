@@ -26,7 +26,7 @@ class HomeButtonDonasi extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 24,
+                  width: 28,
                   child: Image.asset('assets/icons/wallet.png'),
                 ),
                 SizedBox(
@@ -51,7 +51,7 @@ class HomeButtonDonasi extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Container(
-                  width: 24,
+                  width: 28,
                   child: Image.asset('assets/icons/briefcase.png'),
                 ),
                 SizedBox(
