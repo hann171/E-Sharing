@@ -17,10 +17,15 @@ class SectionUcapan extends StatelessWidget {
                 ),
               ),
               Container(
-                child: Text(
-                  'lihat semua',
-                  style: bodyTextField.copyWith(
-                      color: accentColor, fontWeight: FontWeight.w400),
+                child: InkWell(
+                  onTap: () {
+                    Get.to(ListUcapan());
+                  },
+                  child: Text(
+                    'lihat semua',
+                    style: bodyTextField.copyWith(
+                        fontWeight: FontWeight.w400, color: accentColor),
+                  ),
                 ),
               )
             ],

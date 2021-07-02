@@ -1,7 +1,10 @@
 import 'package:e_sharing/models/models.dart';
 import 'package:e_sharing/theme.dart';
+import 'package:e_sharing/ui/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 part 'CustomBotNavBar.dart';
@@ -16,3 +19,7 @@ part 'section_ucapan.dart';
 part 'card_ucapan.dart';
 part 'card_loker.dart';
 part 'card_artikel.dart';
+part 'list_item_penerima.dart';
+part 'list_item_loker.dart';
+part 'list_item_artikel.dart';
+part 'list_item_ucapan.dart';

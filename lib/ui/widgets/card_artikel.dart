@@ -41,7 +41,7 @@ class CardArtikel extends StatelessWidget {
               style: footnoteText.copyWith(
                   fontWeight: FontWeight.w500, color: blackColor),
               maxLines: 2,
-              overflow: TextOverflow.clip,
+              overflow: TextOverflow.ellipsis,
             ),
           ),
           Container(

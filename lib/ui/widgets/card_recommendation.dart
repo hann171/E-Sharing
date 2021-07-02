@@ -78,7 +78,9 @@ class CardRecommendation extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 8),
             child: Text(
-              'Rp. ' + penerima.jumlahDana.toInt().toString(),
+              NumberFormat.currency(
+                      symbol: 'Rp. ', decimalDigits: 0, locale: 'id-ID')
+                  .format(penerima.jumlahDana),
               style: footnoteText.copyWith(
                   fontWeight: FontWeight.w600, color: blackColor),
             ),

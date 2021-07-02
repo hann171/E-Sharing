@@ -33,7 +33,8 @@ TextStyle displaySmall = TextStyle(
     height: 1.2,
     fontWeight: FontWeight.w700);
 
-TextStyle h1 = GoogleFonts.balooTamma(
+TextStyle h1 = TextStyle(
+  fontFamily: 'BalooTamma2',
   fontSize: 29,
   height: 1.38,
 );

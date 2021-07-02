@@ -70,7 +70,7 @@ class CardUcapan extends StatelessWidget {
                 style: footnoteText.copyWith(
                     fontWeight: FontWeight.w400, color: blackColor),
                 maxLines: 4,
-                overflow: TextOverflow.clip,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             SizedBox(
