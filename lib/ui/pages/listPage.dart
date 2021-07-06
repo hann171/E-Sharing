@@ -1,12 +1,12 @@
 part of 'pages.dart';
 
-class DetailPage extends StatelessWidget {
+class ListPage extends StatelessWidget {
   final String title;
   final Function? onBackButtonPressed;
   final Widget? child;
   final Color backColor;
 
-  DetailPage(
+  ListPage(
       {this.title = "Title",
       this.onBackButtonPressed,
       this.child,

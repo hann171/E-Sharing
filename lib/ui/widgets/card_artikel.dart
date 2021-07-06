@@ -47,7 +47,7 @@ class CardArtikel extends StatelessWidget {
           Container(
             padding: EdgeInsets.only(left: 8, top: 4),
             child: Text(
-              artikel.kategori == 1 ? 'Artikel' : '',
+              artikel.idKategori == 1 ? 'Artikel' : '',
               style: footnoteText.copyWith(
                   fontWeight: FontWeight.w400, color: greyColor),
               maxLines: 1,

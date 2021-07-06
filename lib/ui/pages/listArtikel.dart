@@ -12,7 +12,7 @@ class _ListArtikelState extends State<ListArtikel> {
         MediaQuery.of(context).size.width - (2 * defaultPaddingLR);
     return Scaffold(
       body: Container(
-        child: DetailPage(
+        child: ListPage(
           title: 'Artikel bisnis',
           onBackButtonPressed: () {},
           child: Container(

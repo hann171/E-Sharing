@@ -1,12 +1,12 @@
 part of 'models.dart';
 
-class Artikel {
+class Artikel extends Equatable {
   final int idArtikel;
   final String judul;
   final String pathMedia;
   final String deskripsiArtikel;
   final int idDonatur;
-  final int kategori;
+  final int idKategori;
 
   Artikel(
       this.idArtikel,
@@ -14,7 +14,11 @@ class Artikel {
       this.pathMedia,
       this.deskripsiArtikel,
       this.idDonatur,
-      this.kategori);
+      this.idKategori);
+  
+  @override
+  List<Object> get props =>
+      [idArtikel, judul, pathMedia, deskripsiArtikel, idDonatur, idKategori];
 }
 
 List<Artikel> dummyArtikel = [

@@ -12,7 +12,7 @@ class _ListUcapanState extends State<ListUcapan> {
         MediaQuery.of(context).size.width - (2 * defaultPaddingLR);
     return Scaffold(
       body: Container(
-        child: DetailPage(
+        child: ListPage(
           title: 'Ucapan terima kasih',
           onBackButtonPressed: () {},
           child: Container(

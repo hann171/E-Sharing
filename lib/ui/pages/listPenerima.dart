@@ -12,7 +12,7 @@ class _ListPenerimaState extends State<ListPenerima> {
         MediaQuery.of(context).size.width - (2 * defaultPaddingLR);
     return Scaffold(
       body: Container(
-        child: DetailPage(
+        child: ListPage(
           title: 'Pilihan kami',
           onBackButtonPressed: () {},
           child: Container(

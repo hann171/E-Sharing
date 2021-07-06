@@ -12,7 +12,7 @@ class _ListLokerState extends State<ListLoker> {
         MediaQuery.of(context).size.width - (2 * defaultPaddingLR);
     return Scaffold(
       body: Container(
-        child: DetailPage(
+        child: ListPage(
           title: 'Lowongan pekerjaan',
           onBackButtonPressed: () {},
           child: Container(

@@ -1,4 +1,8 @@
+import 'package:e_sharing/models/models.dart';
+import 'package:e_sharing/ui/pages/DonasikuPage/pagesDonasiku.dart';
 import 'package:e_sharing/ui/pages/HomePage/pagesHome.dart';
+import 'package:e_sharing/ui/pages/NotifikasiPage/pagesNotifikasi.dart';
+import 'package:e_sharing/ui/pages/ProfilePage/pagesProfile.dart';
 import '../widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:e_sharing/theme.dart';
@@ -39,13 +43,15 @@ class _MainPageState extends State<MainPage> {
                   child: HomePage(),
                 ),
                 Center(
-                  child: Text('Donasiku'),
+                  child: DonasikuPage(
+                    penerima: dummyPenerima[0],
+                  ),
                 ),
                 Center(
-                  child: Text('Notifikasi'),
+                  child: NotifikasiPage(),
                 ),
                 Center(
-                  child: Text('Profile'),
+                  child: ProfilePage(),
                 )
               ],
             ),
