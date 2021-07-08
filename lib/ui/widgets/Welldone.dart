@@ -1,3 +1,4 @@
+import 'package:e_sharing/ui/pages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:e_sharing/theme.dart';
 
@@ -71,7 +72,13 @@ class Welldone extends StatelessWidget {
                                       MediaQuery.of(context).size.width -
                                           defaultPaddingLR,
                                       56)),
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pushAndRemoveUntil(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MainPage()),
+                                    (route) => false);
+                              },
                               child: Text(
                                 'Beranda',
                                 style: buttonText,

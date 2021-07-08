@@ -1,5 +1,6 @@
 import 'package:e_sharing/models/models.dart';
 import 'package:e_sharing/theme.dart';
+import 'package:e_sharing/ui/pages/DonasikuPage/pagesDonasiku.dart';
 import 'package:e_sharing/ui/pages/pages.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -23,3 +24,5 @@ part 'list_item_penerima.dart';
 part 'list_item_loker.dart';
 part 'list_item_artikel.dart';
 part 'list_item_ucapan.dart';
+part 'list_item_donasi.dart';
+part 'list_item_notifikasi.dart';

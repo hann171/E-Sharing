@@ -37,7 +37,9 @@ class DetailPenerima extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
                           child: Container(
                               width: 40,
                               height: 40,
@@ -496,7 +498,12 @@ class DetailPenerima extends StatelessWidget {
                                 MediaQuery.of(context).size.width -
                                     defaultPaddingLR,
                                 56)),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DonasiDana()));
+                        },
                         child: Text(
                           'Donasi sekarang',
                           style: buttonText,

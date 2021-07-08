@@ -55,7 +55,12 @@ class ProfilePage extends StatelessWidget {
                             ),
                             Container(
                               child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => EditProfile()));
+                                },
                                 child: Text(
                                   'Edit profile',
                                   style: bodyTextField.copyWith(

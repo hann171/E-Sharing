@@ -4,3 +4,4 @@ import 'package:e_sharing/theme.dart';
 import 'package:flutter/services.dart';
 
 part 'profilePage.dart';
+part 'editProfile.dart';

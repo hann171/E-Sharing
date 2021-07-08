@@ -25,17 +25,29 @@ class HomeButtonDonasi extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  width: 28,
-                  child: Image.asset('assets/icons/wallet.png'),
-                ),
-                SizedBox(
-                  width: 16,
-                ),
-                Container(
-                  child: Text(
-                    'Donasi Dana',
-                    style: bodyTextField,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ListPenerima()));
+                  },
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 28,
+                        child: Image.asset('assets/icons/wallet.png'),
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Container(
+                        child: Text(
+                          'Donasi Dana',
+                          style: bodyTextField,
+                        ),
+                      )
+                    ],
                   ),
                 )
               ],
@@ -50,17 +62,29 @@ class HomeButtonDonasi extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Container(
-                  width: 28,
-                  child: Image.asset('assets/icons/briefcase.png'),
-                ),
-                SizedBox(
-                  width: 16,
-                ),
-                Container(
-                  child: Text(
-                    'Donasi Bisnis',
-                    style: bodyTextField,
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => DonasiBisnis()));
+                  },
+                  child: Row(
+                    children: [
+                      Container(
+                        width: 28,
+                        child: Image.asset('assets/icons/wallet.png'),
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      Container(
+                        child: Text(
+                          'Donasi Bisnis',
+                          style: bodyTextField,
+                        ),
+                      )
+                    ],
                   ),
                 )
               ],

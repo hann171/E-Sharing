@@ -40,7 +40,9 @@ class DetailArtikel extends StatelessWidget {
                       child: Align(
                         alignment: Alignment.centerLeft,
                         child: GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
                           child: Container(
                               width: 40,
                               height: 40,

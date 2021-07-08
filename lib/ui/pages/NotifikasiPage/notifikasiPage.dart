@@ -10,6 +10,8 @@ class NotifikasiPage extends StatefulWidget {
 class _NotifikasiPageState extends State<NotifikasiPage> {
   @override
   Widget build(BuildContext context) {
+    double listItemWidth =
+        MediaQuery.of(context).size.width - (2 * defaultPaddingLR);
     return Scaffold(
       body: Stack(
         children: [
@@ -39,64 +41,15 @@ class _NotifikasiPageState extends State<NotifikasiPage> {
                 children: [
                   Column(
                     children: [
-                      Container(
-                        padding: EdgeInsets.all(8),
-                        width: MediaQuery.of(context).size.width -
-                            (2 * defaultPaddingLR),
-                        decoration: BoxDecoration(
-                          color: whiteColor,
-                          borderRadius: BorderRadius.circular(10),
-                          boxShadow: [
-                            BoxShadow(
-                                blurRadius: 10,
-                                spreadRadius: 3,
-                                offset: Offset(0, 6),
-                                color: Color(0xff252525).withOpacity(0.08))
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            Container(
-                              width: 60,
-                              height: 60,
-                              decoration: BoxDecoration(
-                                  color: greyColor,
-                                  borderRadius: BorderRadius.circular(10)),
-                            ),
-                            SizedBox(
-                              width: 12,
-                            ),
-                            Container(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    'Donasi kamu sudah sampai',
-                                    style: bodyTextField.copyWith(
-                                        color: blackColor,
-                                        fontWeight: FontWeight.w500),
-                                  ),
-                                  Text(
-                                    'Nama donatur/Nama penerima',
-                                    style: footnoteText.copyWith(
-                                        color: blackColor,
-                                        fontWeight: FontWeight.w400),
-                                  ),
-                                  SizedBox(
-                                    height: 4,
-                                  ),
-                                  Text(
-                                    '14 Juni 2021',
-                                    style: captionText.copyWith(
-                                        color: greyColor,
-                                        fontWeight: FontWeight.w500),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
+                      Builder(builder: (_) {
+                        List<RiwayatDonasi> riwayatdonasi = dummyRiwayatDonasi;
+                        return Column(
+                          children: riwayatdonasi
+                              .map<Widget>((e) => NotifikasiListItem(
+                                  riwayatdonasi: e, itemWidth: listItemWidth))
+                              .toList(),
+                        );
+                      })
                     ],
                   )
                 ],
