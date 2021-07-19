@@ -1,19 +1,15 @@
 part of './widgets.dart';
 
-final List<String> imagesList = [
+/*final List<String> imagesList = [
   'assets/img/banner_home.png',
   'assets/img/404.png',
   'assets/img/daftar.png',
   'assets/img/login.png',
-];
-final List<String> titles = [
-  ' Coffee ',
-  ' Bread ',
-  ' Gelato ',
-  ' Ice Cream ',
-];
+];*/
 
 class CardCarousel extends StatefulWidget {
+  final BannerCarousel? bannerCarousel;
+  CardCarousel({this.bannerCarousel});
   @override
   _CardCarouselState createState() => _CardCarouselState();
 }
@@ -47,7 +43,7 @@ class _CardCarouselState extends State<CardCarousel> {
                   autoPlayInterval: Duration(seconds: 3),
                   autoPlayAnimationDuration: Duration(milliseconds: 800),
                   autoPlayCurve: Curves.easeInOut),
-              items: imagesList
+              items: imageList
                   .map(
                     (item) => Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 1),
@@ -67,20 +63,9 @@ class _CardCarouselState extends State<CardCarousel> {
                           child: Stack(
                             children: <Widget>[
                               Image.asset(
-                                item,
+                                item.pathBanner,
                                 fit: BoxFit.cover,
                                 width: double.infinity,
-                              ),
-                              Center(
-                                child: Text(
-                                  '${titles[_currentIndex]}',
-                                  style: TextStyle(
-                                    fontSize: 24.0,
-                                    fontWeight: FontWeight.bold,
-                                    backgroundColor: Colors.black45,
-                                    color: Colors.white,
-                                  ),
-                                ),
                               ),
                             ],
                           ),
@@ -92,8 +77,8 @@ class _CardCarouselState extends State<CardCarousel> {
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: imagesList.map((urlOfItem) {
-                int index = imagesList.indexOf(urlOfItem);
+              children: imageList.map((urlOfItem) {
+                int index = imageList.indexOf(urlOfItem);
                 return Container(
                   width: 6.0,
                   height: 6.0,

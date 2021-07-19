@@ -20,7 +20,7 @@ class _ListUcapanState extends State<ListUcapan> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Builder(builder: (_) {
-                  List<Ucapan> ucapan = dummyUcapan;
+                  List<UcapanTerimakasih> ucapan = dummyUcapanTerimakasih;
                   return Column(
                     children: ucapan
                         .map<Widget>((e) =>

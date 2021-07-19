@@ -1,7 +1,8 @@
 part of 'widgets.dart';
 
 class CardUcapan extends StatelessWidget {
-  final Ucapan ucapan;
+  //final Ucapan ucapan;
+  final UcapanTerimakasih ucapan;
 
   CardUcapan(this.ucapan);
 
@@ -44,14 +45,14 @@ class CardUcapan extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      ucapan.namaPengirim,
+                      ucapan.userPenerima.namaDpn,
                       style: captionText.copyWith(
                           fontWeight: FontWeight.w500, color: blackColor),
                       maxLines: 1,
                       overflow: TextOverflow.clip,
                     ),
                     Text(
-                      ucapan.pekerjaan,
+                      ucapan.userPenerima.pekerjaan,
                       style: footnoteText.copyWith(
                           fontWeight: FontWeight.w400, color: greyColor),
                       maxLines: 1,
@@ -66,7 +67,7 @@ class CardUcapan extends StatelessWidget {
             ),
             Container(
               child: Text(
-                ucapan.ucapan,
+                ucapan.ucapanTerimakasih,
                 style: footnoteText.copyWith(
                     fontWeight: FontWeight.w400, color: blackColor),
                 maxLines: 4,

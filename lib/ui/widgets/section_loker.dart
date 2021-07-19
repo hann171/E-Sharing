@@ -40,13 +40,13 @@ class SectionLoker extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 Row(
-                  children: dummyLoker
-                      .map<Widget>((e) => Padding(
+                  children: dummyDonasiNonDana
+                      .map<Widget>((e) => (e.kategori==KategoriDonasi.loker) ? Padding(
                             padding: EdgeInsets.only(
-                                right: (e == dummyLoker.last) ? 0 : 8,
+                                right: (e == dummyDonasiNonDana.last) ? 0 : 8,
                                 bottom: 8),
                             child: CardLoker(e),
-                          ))
+                          ) : SizedBox())
                       .toList(),
                 )
               ],

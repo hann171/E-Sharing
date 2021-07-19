@@ -1,7 +1,8 @@
 part of 'widgets.dart';
 
 class UcapanListItem extends StatelessWidget {
-  final Ucapan ucapan;
+  //final Ucapan ucapan;
+  final UcapanTerimakasih ucapan;
   final double itemWidth;
 
   UcapanListItem({required this.ucapan, required this.itemWidth});
@@ -23,6 +24,7 @@ class UcapanListItem extends StatelessWidget {
       padding: EdgeInsets.all(12),
       margin: EdgeInsets.only(bottom: 20),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -45,14 +47,14 @@ class UcapanListItem extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    ucapan.namaPengirim,
+                    ucapan.userPenerima.namaDpn,
                     style: bodyTextField.copyWith(
                         fontWeight: FontWeight.w600, color: secondaryColor),
                     maxLines: 1,
                     overflow: TextOverflow.clip,
                   ),
                   Text(
-                    ucapan.pekerjaan,
+                    ucapan.userPenerima.pekerjaan,
                     style: captionText.copyWith(
                         fontWeight: FontWeight.w400, color: accentColor),
                     maxLines: 1,
@@ -67,7 +69,7 @@ class UcapanListItem extends StatelessWidget {
           ),
           Container(
             child: Text(
-              ucapan.ucapan,
+              ucapan.ucapanTerimakasih,
               style: captionText.copyWith(
                   fontWeight: FontWeight.w400, color: blackColor),
               maxLines: 3,

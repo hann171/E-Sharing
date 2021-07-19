@@ -1,10 +1,12 @@
 part of 'widgets.dart';
 
 class RiwayatDonasiListItem extends StatelessWidget {
-  final RiwayatDonasi riwayatdonasi;
+  //final RiwayatDonasi riwayatdonasi;
+  final DonasiDana daftarDonasiDana;
   final double itemWidth;
 
-  RiwayatDonasiListItem({required this.riwayatdonasi, required this.itemWidth});
+  RiwayatDonasiListItem(
+      {required this.daftarDonasiDana, required this.itemWidth});
 
   @override
   Widget build(BuildContext context) {
@@ -44,14 +46,14 @@ class RiwayatDonasiListItem extends StatelessWidget {
                   children: [
                     Container(
                       child: Text(
-                        riwayatdonasi.namaDepanDonatur,
+                        daftarDonasiDana.penerima.namaDpn,
                         style: bodyTextField.copyWith(
                             color: blackColor, fontWeight: FontWeight.w500),
                       ),
                     ),
                     Container(
                       child: Text(
-                        riwayatdonasi.role,
+                        'Penerima',
                         style: footnoteText.copyWith(
                             color: blackColor, fontWeight: FontWeight.w500),
                       ),
@@ -65,7 +67,7 @@ class RiwayatDonasiListItem extends StatelessWidget {
                                 symbol: 'Rp. ',
                                 decimalDigits: 0,
                                 locale: 'id-ID')
-                            .format(riwayatdonasi.jumlahDana),
+                            .format(double.parse(daftarDonasiDana.jumlahDana)),
                         style: captionText.copyWith(
                             color: secondaryColor, fontWeight: FontWeight.w500),
                       ),
@@ -81,18 +83,28 @@ class RiwayatDonasiListItem extends StatelessWidget {
                   height: 20,
                   padding: EdgeInsets.symmetric(vertical: 4, horizontal: 12),
                   decoration: BoxDecoration(
-                      color: primaryColor,
+                      color: daftarDonasiDana.status ==
+                              StatusDonasiDana.terverifikasi
+                          ? primaryColor
+                          : lightenColor,
                       borderRadius: BorderRadius.circular(4)),
                   child: Text(
-                    'Diterima',
-                    style: footnoteText.copyWith(color: whiteColor),
+                    daftarDonasiDana.status == StatusDonasiDana.terverifikasi
+                        ? 'Diterima'
+                        : 'Belum diverifikasi',
+                    style: footnoteText.copyWith(
+                        color: daftarDonasiDana.status ==
+                                StatusDonasiDana.terverifikasi
+                            ? whiteColor
+                            : primaryColor,
+                        height: 1.2),
                   )),
               SizedBox(
                 height: 20,
               ),
               Container(
                 child: Text(
-                  DateFormat('d MMMM y').format(riwayatdonasi.tanggalDonasi),
+                  DateFormat('d MMMM y').format(daftarDonasiDana.tglDonasi),
                   style: captionText.copyWith(color: greyColor),
                 ),
               )

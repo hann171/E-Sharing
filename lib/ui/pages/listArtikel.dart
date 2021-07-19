@@ -20,11 +20,11 @@ class _ListArtikelState extends State<ListArtikel> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Builder(builder: (_) {
-                  List<Artikel> artikel = dummyArtikel;
+                  List<DonasiNonDana> artikel = dummyDonasiNonDana;
                   return Column(
                     children: artikel
-                        .map<Widget>((e) => ArtikelListItem(
-                            artikel: e, itemWidth: listItemWidth))
+                        .map<Widget>((e) => (e.kategori==KategoriDonasi.loker) ? ArtikelListItem(
+                            artikel: e, itemWidth: listItemWidth) : SizedBox())
                         .toList(),
                   );
                 })

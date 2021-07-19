@@ -1,7 +1,9 @@
 part of 'pagesHome.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({Key? key}) : super(key: key);
+  final UserDonatur? donatur;
+
+  HomePage({this.donatur});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -42,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Hi, ' + 'Angel',
+                              'Hi, ' + widget.donatur!.namaDpn,
                               style:
                                   h3Text.copyWith(color: whiteColor, height: 1),
                             ),

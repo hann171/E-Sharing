@@ -1,4 +1,5 @@
 import 'package:e_sharing/ui/pages/DonasikuPage/pagesDonasiku.dart';
+import 'package:e_sharing/ui/widgets/WelldoneUcapan.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:e_sharing/models/models.dart';
@@ -18,3 +19,4 @@ part 'detailLoker.dart';
 part 'detailArtikel.dart';
 part 'detailPenerima.dart';
 part 'aboutPage.dart';
+part 'beriUcapan.dart';

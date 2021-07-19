@@ -29,7 +29,7 @@ class _ListPenerimaState extends State<ListPenerima> {
                   height: 8,
                 ),
                 Builder(builder: (_) {
-                  List<Penerima> penerima = dummyPenerima;
+                  List<UserPenerima> penerima = dummyUserPenerima;
                   return Column(
                     children: penerima
                         .map<Widget>((e) => PenerimaListItem(

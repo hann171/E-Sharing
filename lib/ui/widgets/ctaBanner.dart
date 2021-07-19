@@ -32,10 +32,17 @@ class CTABanner extends StatelessWidget {
             SizedBox(
               height: 24,
             ),
-            Text(
-              'Donasi sekarang',
-              style: h5Text.copyWith(
-                  fontWeight: FontWeight.w700, height: 1.05, color: whiteColor),
+            InkWell(
+              onTap: () {
+                Get.to(ListPenerima());
+              },
+              child: Text(
+                'Donasi sekarang',
+                style: h5Text.copyWith(
+                    fontWeight: FontWeight.w700,
+                    height: 1.05,
+                    color: whiteColor),
+              ),
             ),
           ],
         ),

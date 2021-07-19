@@ -1,6 +1,7 @@
 import 'package:e_sharing/ui/pages/LoginPage/Login.dart';
 import 'package:flutter/material.dart';
 import 'package:e_sharing/theme.dart';
+import 'package:get/get.dart';
 
 class DaftarPenerima2 extends StatefulWidget {
   DaftarPenerima2({Key? key}) : super(key: key);
@@ -111,7 +112,75 @@ class _DaftarPenerima2State extends State<DaftarPenerima2> {
                         Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            'Surat PHK',
+                            'Foto Kartu Keluarga',
+                            style: bodyTextField,
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width -
+                              (2 * defaultPaddingLR),
+                          height: 179,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color(0xff252525).withOpacity(0.08),
+                                    blurRadius: 30,
+                                    offset: Offset(0, 4))
+                              ],
+                              color: whiteColor),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                            image: AssetImage('assets/img/upgambar.png'),
+                            fit: BoxFit.cover,
+                          ))),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Foto Surat PHK',
+                            style: bodyTextField,
+                          ),
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width -
+                              (2 * defaultPaddingLR),
+                          height: 179,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              boxShadow: [
+                                BoxShadow(
+                                    color: Color(0xff252525).withOpacity(0.08),
+                                    blurRadius: 30,
+                                    offset: Offset(0, 4))
+                              ],
+                              color: whiteColor),
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(
+                            image: AssetImage('assets/img/upgambar.png'),
+                            fit: BoxFit.cover,
+                          ))),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      children: [
+                        Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            'Foto SKTM (Surat Keterangan Tidak Mampu)',
                             style: bodyTextField,
                           ),
                         ),

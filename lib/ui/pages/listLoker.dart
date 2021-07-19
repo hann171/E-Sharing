@@ -20,11 +20,11 @@ class _ListLokerState extends State<ListLoker> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Builder(builder: (_) {
-                  List<Loker> loker = dummyLoker;
+                  List<DonasiNonDana> loker = dummyDonasiNonDana;
                   return Column(
                     children: loker
-                        .map<Widget>((e) =>
-                            LokerListItem(loker: e, itemWidth: listItemWidth))
+                        .map<Widget>((e) => (e.kategori==KategoriDonasi.loker) ?
+                            LokerListItem(loker: e, itemWidth: listItemWidth) : SizedBox())
                         .toList(),
                   );
                 })

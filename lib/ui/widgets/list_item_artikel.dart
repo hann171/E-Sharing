@@ -1,7 +1,8 @@
 part of 'widgets.dart';
 
 class ArtikelListItem extends StatelessWidget {
-  final Artikel artikel;
+  //final Artikel artikel;
+  final DonasiNonDana artikel;
   final double itemWidth;
 
   ArtikelListItem({required this.artikel, required this.itemWidth});
@@ -14,7 +15,7 @@ class ArtikelListItem extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => DetailArtikel(
-                      artikel: dummyArtikel[0],
+                      artikel: dummyDonasiNonDana[0],
                     )));
       },
       child: Container(
@@ -60,7 +61,7 @@ class ArtikelListItem extends StatelessWidget {
                 ),
                 Container(
                   child: Text(
-                    artikel.deskripsiArtikel,
+                    artikel.deskripsi,
                     style: captionText.copyWith(
                         fontWeight: FontWeight.w400,
                         color: blackColor,

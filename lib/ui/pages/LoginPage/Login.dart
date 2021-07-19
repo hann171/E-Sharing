@@ -1,5 +1,6 @@
 import 'package:e_sharing/ui/pages/SignupPage/Signup_home.dart';
 import 'package:e_sharing/theme.dart';
+import 'package:e_sharing/ui/pages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -70,7 +71,7 @@ class _LoginState extends State<Login> {
                             Align(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                'No. Telp',
+                                'NIK',
                                 style: bodyTextField,
                               ),
                             ),
@@ -84,7 +85,7 @@ class _LoginState extends State<Login> {
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
                                     borderSide: BorderSide(color: greyColor)),
-                                hintText: 'Masukan no. telp',
+                                hintText: 'Masukan NIK',
                                 hintStyle: bodyTextFieldHint,
                               ),
                               keyboardType: TextInputType.phone,
@@ -150,7 +151,12 @@ class _LoginState extends State<Login> {
                     width: MediaQuery.of(context).size.width -
                         (2 * defaultPaddingLR),
                     // ignore: dead_code
-                    child: isLoading ? SpinKitCircle(size: 45, color: primaryColor,) : ClipRRect(
+                    child: isLoading
+                        ? SpinKitCircle(
+                            size: 45,
+                            color: primaryColor,
+                          )
+                        : ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Stack(
                               children: <Widget>[
@@ -172,7 +178,13 @@ class _LoginState extends State<Login> {
                                             MediaQuery.of(context).size.width -
                                                 defaultPaddingLR,
                                             56)),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => MainPage()),
+                                          (route) => false);
+                                    },
                                     child: Text(
                                       'Login',
                                       style: buttonText,

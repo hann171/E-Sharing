@@ -1,11 +1,11 @@
 part of 'pagesDonasiku.dart';
 
-class DonasiDana extends StatefulWidget {
+class PageDonasiDana extends StatefulWidget {
   @override
-  _DonasiDanaState createState() => _DonasiDanaState();
+  _PageDonasiDanaState createState() => _PageDonasiDanaState();
 }
 
-class _DonasiDanaState extends State<DonasiDana> {
+class _PageDonasiDanaState extends State<PageDonasiDana> {
   bool isSwitched = false;
 
   @override
@@ -13,6 +13,7 @@ class _DonasiDanaState extends State<DonasiDana> {
     TextEditingController donasiController = TextEditingController();
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -42,13 +42,13 @@ class SectionArtikel extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 Row(
-                  children: dummyArtikel
-                      .map<Widget>((e) => Padding(
+                  children: dummyDonasiNonDana
+                      .map<Widget>((e) => (e.kategori==KategoriDonasi.artikel) ? Padding(
                             padding: EdgeInsets.only(
-                                right: (e == dummyArtikel.last) ? 0 : 8,
+                                right: (e == dummyDonasiNonDana.last) ? 0 : 8,
                                 bottom: 8),
                             child: CardArtikel(e),
-                          ))
+                          ) : SizedBox())
                       .toList(),
                 )
               ],

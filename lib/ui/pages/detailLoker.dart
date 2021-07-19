@@ -1,8 +1,8 @@
 part of 'pages.dart';
 
 class DetailLoker extends StatelessWidget {
-  final Loker? loker;
-
+  //final Loker? loker;
+  final DonasiNonDana? loker;
   DetailLoker({this.loker});
 
   @override
@@ -54,7 +54,7 @@ class DetailLoker extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.of(context).pop();
-                  _launchUrl('tel:${loker!.idDonatur}');
+                  _launchUrl('tel:${loker!.donatur.noTelp}');
                 },
               ),
             ],
@@ -72,7 +72,7 @@ class DetailLoker extends StatelessWidget {
           SafeArea(child: Container(color: whiteColor)),
           SafeArea(
             child: Container(
-              height: 320,
+              height: 280,
               width: double.infinity,
               decoration: BoxDecoration(
                   /*image: DecorationImage(
@@ -109,7 +109,7 @@ class DetailLoker extends StatelessWidget {
                     Container(
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height - 384,
-                      margin: EdgeInsets.only(top: 248),
+                      margin: EdgeInsets.only(top: 200),
                       padding: EdgeInsets.symmetric(
                           vertical: defaultPaddingLR,
                           horizontal: defaultPaddingLR),
@@ -164,7 +164,7 @@ class DetailLoker extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        loker!.posisi,
+                                        loker!.posisiLoker,
                                         style: bodyTextField.copyWith(
                                             fontWeight: FontWeight.w600,
                                             color: blackColor,
@@ -202,7 +202,7 @@ class DetailLoker extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        loker!.pendMin,
+                                        loker!.pendMinLoker,
                                         style: bodyTextField.copyWith(
                                             fontWeight: FontWeight.w600,
                                             color: blackColor,
@@ -240,7 +240,7 @@ class DetailLoker extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        loker!.lokasi,
+                                        loker!.lokasiLoker,
                                         style: bodyTextField.copyWith(
                                             fontWeight: FontWeight.w600,
                                             color: blackColor,
@@ -289,7 +289,7 @@ class DetailLoker extends StatelessWidget {
                                 height: 8,
                               ),
                               Text(
-                                loker!.deskripsiLoker,
+                                loker!.deskripsi,
                                 style: bodyTextField.copyWith(
                                     fontWeight: FontWeight.w500,
                                     color: blackColor),

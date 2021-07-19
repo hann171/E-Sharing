@@ -40,10 +40,10 @@ class SectionUcapan extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 Row(
-                  children: dummyUcapan
+                  children: dummyUcapanTerimakasih
                       .map<Widget>((e) => Padding(
                             padding: EdgeInsets.only(
-                                right: (e == dummyUcapan.last) ? 0 : 8,
+                                right: (e == dummyUcapanTerimakasih.last) ? 0 : 8,
                                 bottom: 8),
                             child: CardUcapan(e),
                           ))

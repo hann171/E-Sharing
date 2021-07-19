@@ -1,9 +1,11 @@
 part of 'pagesDonasiku.dart';
 
 class DonasikuPage extends StatefulWidget {
-  final Penerima? penerima;
+  //final Penerima? penerima;
+  //final UserPenerima penerima;
+  final UserDonatur? donatur;
 
-  DonasikuPage({this.penerima});
+  DonasikuPage({this.donatur});
 
   @override
   _DonasikuPageState createState() => _DonasikuPageState();
@@ -12,8 +14,6 @@ class DonasikuPage extends StatefulWidget {
 class _DonasikuPageState extends State<DonasikuPage> {
   @override
   Widget build(BuildContext context) {
-    double listItemWidth =
-        MediaQuery.of(context).size.width - (2 * defaultPaddingLR);
     return Scaffold(
       body: SafeArea(
         child: ListView(
@@ -45,7 +45,8 @@ class _DonasikuPageState extends State<DonasikuPage> {
                                       symbol: 'Rp. ',
                                       decimalDigits: 0,
                                       locale: 'id-ID')
-                                  .format(widget.penerima!.jumlahDana),
+                                  .format(
+                                      double.parse(widget.donatur!.jumlahDana)),
                               style: displaySmall.copyWith(
                                   fontWeight: FontWeight.w700,
                                   color: whiteColor),
@@ -80,33 +81,9 @@ class _DonasikuPageState extends State<DonasikuPage> {
                               height: 16,
                             ),
                             Container(
-                              height: MediaQuery.of(context).size.height - 440,
-                              child: ListView(
-                                children: [
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Builder(builder: (_) {
-                                        List<RiwayatDonasi> riwayatdonasi =
-                                            dummyRiwayatDonasi;
-                                        return Column(
-                                          children: riwayatdonasi
-                                              .map<Widget>((e) =>
-                                                  RiwayatDonasiListItem(
-                                                      riwayatdonasi: e,
-                                                      itemWidth: listItemWidth))
-                                              .toList(),
-                                        );
-                                      })
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: 8,
-                                  ),
-                                ],
-                              ),
-                            )
+                                height:
+                                    MediaQuery.of(context).size.height - 440,
+                                child: Riwayat())
                           ],
                         ),
                       )

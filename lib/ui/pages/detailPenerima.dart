@@ -1,12 +1,15 @@
 part of 'pages.dart';
 
 class DetailPenerima extends StatelessWidget {
-  final Penerima? penerima;
+  //final Penerima? penerima;
+  final UserPenerima? penerima;
 
   DetailPenerima({this.penerima});
 
   @override
   Widget build(BuildContext context) {
+    double listItemWidth =
+        MediaQuery.of(context).size.width - (2 * defaultPaddingLR);
     return Scaffold(
       body: Stack(
         children: [
@@ -16,7 +19,7 @@ class DetailPenerima extends StatelessWidget {
           SafeArea(child: Container(color: whiteColor)),
           SafeArea(
             child: Container(
-              height: 320,
+              height: 280,
               width: double.infinity,
               decoration: BoxDecoration(
                   /*image: DecorationImage(
@@ -52,7 +55,7 @@ class DetailPenerima extends StatelessWidget {
                     ),
                     Container(
                       width: double.infinity,
-                      margin: EdgeInsets.only(top: 248),
+                      margin: EdgeInsets.only(top: 200),
                       padding: EdgeInsets.symmetric(
                           vertical: defaultPaddingLR,
                           horizontal: defaultPaddingLR),
@@ -97,7 +100,7 @@ class DetailPenerima extends StatelessWidget {
                                               symbol: 'Rp. ',
                                               decimalDigits: 0,
                                               locale: 'id-ID')
-                                          .format(penerima!.jumlahDana),
+                                          .format(double.parse(penerima!.jumlahDana)),
                                       style: bodyTextField.copyWith(
                                           fontWeight: FontWeight.w500,
                                           color: secondaryColor),
@@ -123,8 +126,7 @@ class DetailPenerima extends StatelessWidget {
                                   animation: true,
                                   lineHeight: 10.0,
                                   animationDuration: 2500,
-                                  percent: penerima!.jumlahDana.toDouble() /
-                                      500000.0,
+                                  percent: double.parse(penerima!.jumlahDana)/500000.0,
                                   linearStrokeCap: LinearStrokeCap.roundAll,
                                   progressColor: primaryColor,
                                 ),
@@ -180,8 +182,9 @@ class DetailPenerima extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        penerima!.namaDepan +
-                                            penerima!.namaBelakang,
+                                        penerima!.namaDpn +
+                                            ' ' +
+                                            penerima!.namaBlkng,
                                         style: bodyTextField.copyWith(
                                             fontWeight: FontWeight.w600,
                                             color: blackColor,
@@ -259,6 +262,45 @@ class DetailPenerima extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
+                                'Deskripsi keadaan ekonomi',
+                                style: bodyTextField.copyWith(
+                                    color: blackColor,
+                                    fontWeight: FontWeight.w600),
+                              ),
+                              SizedBox(
+                                height: 16,
+                              ),
+                              Text(
+                                penerima!.deskripsiEko,
+                                style: bodyTextField.copyWith(
+                                    fontWeight: FontWeight.w400,
+                                    color: blackColor,
+                                    height: 1),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 16,
+                        ),
+                        Container(
+                          width: MediaQuery.of(context).size.width -
+                              (2 * defaultPaddingLR),
+                          padding: EdgeInsets.all(16),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: whiteColor,
+                              boxShadow: [
+                                BoxShadow(
+                                    blurRadius: 10,
+                                    spreadRadius: 6,
+                                    offset: Offset(0, 4),
+                                    color: Color(0xff252525).withOpacity(0.08))
+                              ]),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
                                 'Jumlah tanggungan',
                                 style: bodyTextField.copyWith(
                                     color: blackColor,
@@ -286,8 +328,7 @@ class DetailPenerima extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        '3 Anak',
-                                        //penerima!.jumlahTanggungan,
+                                        penerima!.jumlahTanggungan,
                                         style: bodyTextField.copyWith(
                                             fontWeight: FontWeight.w600,
                                             color: blackColor,
@@ -310,159 +351,34 @@ class DetailPenerima extends StatelessWidget {
                           height: 16,
                         ),
                         Container(
-                          width: MediaQuery.of(context).size.width -
-                              (2 * defaultPaddingLR),
-                          padding: EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: whiteColor,
-                              boxShadow: [
-                                BoxShadow(
-                                    blurRadius: 10,
-                                    spreadRadius: 6,
-                                    offset: Offset(0, 4),
-                                    color: Color(0xff252525).withOpacity(0.08))
-                              ]),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                child: Text(
+                            width: MediaQuery.of(context).size.width -
+                                (2 * defaultPaddingLR),
+                            padding: EdgeInsets.all(16),
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: whiteColor,
+                                boxShadow: [
+                                  BoxShadow(
+                                      blurRadius: 10,
+                                      spreadRadius: 6,
+                                      offset: Offset(0, 4),
+                                      color:
+                                          Color(0xff252525).withOpacity(0.08))
+                                ]),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
                                   'Donasi',
                                   style: bodyTextField.copyWith(
-                                      color: blackColor,
                                       fontWeight: FontWeight.w600),
                                 ),
-                              ),
-                              SizedBox(
-                                height: 16,
-                              ),
-                              Container(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      width: 48,
-                                      height: 48,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.rectangle,
-                                          borderRadius:
-                                              BorderRadius.circular(4),
-                                          color: greyColor),
-                                    ),
-                                    SizedBox(
-                                      width: 16,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          '3 Anak',
-                                          //penerima!.jumlahTanggungan,
-                                          style: bodyTextField.copyWith(
-                                              fontWeight: FontWeight.w600,
-                                              color: blackColor,
-                                              height: 1),
-                                        ),
-                                        Text(
-                                          'Kartu Keluarga (KK) terverifikasi',
-                                          style: captionText.copyWith(
-                                              fontWeight: FontWeight.w400,
-                                              color: accentColor),
-                                        )
-                                      ],
-                                    )
-                                  ],
+                                SizedBox(
+                                  height: 16,
                                 ),
-                              ),
-                              SizedBox(
-                                height: 16,
-                              ),
-                              Container(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      width: 48,
-                                      height: 48,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.rectangle,
-                                          borderRadius:
-                                              BorderRadius.circular(4),
-                                          color: greyColor),
-                                    ),
-                                    SizedBox(
-                                      width: 16,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          '3 Anak',
-                                          //penerima!.jumlahTanggungan,
-                                          style: bodyTextField.copyWith(
-                                              fontWeight: FontWeight.w600,
-                                              color: blackColor,
-                                              height: 1),
-                                        ),
-                                        Text(
-                                          'Kartu Keluarga (KK) terverifikasi',
-                                          style: captionText.copyWith(
-                                              fontWeight: FontWeight.w400,
-                                              color: accentColor),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 16,
-                              ),
-                              Container(
-                                child: Row(
-                                  crossAxisAlignment: CrossAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                      width: 48,
-                                      height: 48,
-                                      decoration: BoxDecoration(
-                                          shape: BoxShape.rectangle,
-                                          borderRadius:
-                                              BorderRadius.circular(4),
-                                          color: greyColor),
-                                    ),
-                                    SizedBox(
-                                      width: 16,
-                                    ),
-                                    Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          '3 Anak',
-                                          //penerima!.jumlahTanggungan,
-                                          style: bodyTextField.copyWith(
-                                              fontWeight: FontWeight.w600,
-                                              color: blackColor,
-                                              height: 1),
-                                        ),
-                                        Text(
-                                          'Kartu Keluarga (KK) terverifikasi',
-                                          style: captionText.copyWith(
-                                              fontWeight: FontWeight.w400,
-                                              color: accentColor),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
+                                DonasiDetailPenerima()
+                              ],
+                            )),
                       ]),
                     ),
                   ],
@@ -502,7 +418,7 @@ class DetailPenerima extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => DonasiDana()));
+                                  builder: (context) => PageDonasiDana()));
                         },
                         child: Text(
                           'Donasi sekarang',

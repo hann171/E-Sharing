@@ -37,23 +37,7 @@ class _NotifikasiPageState extends State<NotifikasiPage> {
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(20),
                       topLeft: Radius.circular(20))),
-              child: ListView(
-                children: [
-                  Column(
-                    children: [
-                      Builder(builder: (_) {
-                        List<RiwayatDonasi> riwayatdonasi = dummyRiwayatDonasi;
-                        return Column(
-                          children: riwayatdonasi
-                              .map<Widget>((e) => NotifikasiListItem(
-                                  riwayatdonasi: e, itemWidth: listItemWidth))
-                              .toList(),
-                        );
-                      })
-                    ],
-                  )
-                ],
-              ) //EmptyNotification(),
+              child: Notifikasi() //EmptyNotification(),
               )
         ],
       ),

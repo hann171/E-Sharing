@@ -40,18 +40,18 @@ class _MainPageState extends State<MainPage> {
               },
               children: [
                 Center(
-                  child: HomePage(),
+                  child: HomePage(donatur: dummyUserDonatur[0]),
                 ),
                 Center(
                   child: DonasikuPage(
-                    penerima: dummyPenerima[0],
+                    donatur: dummyUserDonatur[0],
                   ),
                 ),
                 Center(
                   child: NotifikasiPage(),
                 ),
                 Center(
-                  child: ProfilePage(),
+                  child: ProfilePage(donatur: dummyUserDonatur[0]),
                 )
               ],
             ),

@@ -42,10 +42,10 @@ class SectionRecommendation extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               children: [
                 Row(
-                  children: dummyPenerima
+                  children: dummyUserPenerima
                       .map<Widget>((e) => Padding(
                             padding: EdgeInsets.only(
-                                right: (e == dummyPenerima.last) ? 0 : 8,
+                                right: (e == dummyUserPenerima.last) ? 0 : 8,
                                 bottom: 8),
                             child: CardRecommendation(e),
                           ))

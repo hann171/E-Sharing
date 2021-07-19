@@ -1,7 +1,8 @@
 part of 'pages.dart';
 
 class DetailArtikel extends StatelessWidget {
-  final Artikel? artikel;
+  //final Artikel? artikel;
+  final DonasiNonDana? artikel;
 
   DetailArtikel({this.artikel});
 
@@ -19,7 +20,7 @@ class DetailArtikel extends StatelessWidget {
           )),
           SafeArea(
             child: Container(
-              height: 320,
+              height: 280,
               width: double.infinity,
               decoration: BoxDecoration(
                   /*image: DecorationImage(
@@ -56,7 +57,7 @@ class DetailArtikel extends StatelessWidget {
                     Container(
                       width: double.infinity,
                       height: MediaQuery.of(context).size.height - 384,
-                      margin: EdgeInsets.only(top: 248),
+                      margin: EdgeInsets.only(top: 200),
                       padding: EdgeInsets.symmetric(
                           vertical: defaultPaddingLR,
                           horizontal: defaultPaddingLR),
@@ -97,7 +98,7 @@ class DetailArtikel extends StatelessWidget {
                                     children: [
                                       Container(
                                         child: Text(
-                                          'Juminten',
+                                          artikel!.donatur.namaDpn,
                                           style: captionText.copyWith(
                                               color: blackColor,
                                               fontWeight: FontWeight.w600),
@@ -133,7 +134,7 @@ class DetailArtikel extends StatelessWidget {
                               ),
                               Container(
                                 child: Text(
-                                  artikel!.deskripsiArtikel,
+                                  artikel!.deskripsi,
                                   style: bodyTextField.copyWith(
                                       color: blackColor,
                                       fontWeight: FontWeight.w400),

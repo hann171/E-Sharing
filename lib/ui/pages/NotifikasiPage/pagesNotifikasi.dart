@@ -6,3 +6,4 @@ import 'package:e_sharing/theme.dart';
 import 'package:intl/intl.dart';
 
 part 'notifikasiPage.dart';
+part 'notifikasi.dart';

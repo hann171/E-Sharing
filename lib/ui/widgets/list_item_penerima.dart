@@ -1,7 +1,8 @@
 part of 'widgets.dart';
 
 class PenerimaListItem extends StatelessWidget {
-  final Penerima penerima;
+  //final Penerima penerima;
+  final UserPenerima penerima;
   final double itemWidth;
 
   PenerimaListItem({required this.penerima, required this.itemWidth});
@@ -14,7 +15,7 @@ class PenerimaListItem extends StatelessWidget {
             context,
             MaterialPageRoute(
                 builder: (context) => DetailPenerima(
-                      penerima: dummyPenerima[0],
+                      penerima: dummyUserPenerima[0],
                     )));
       },
       child: Container(
@@ -40,7 +41,7 @@ class PenerimaListItem extends StatelessWidget {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4), color: lightGreyColor
                   /*image: DecorationImage(
-                        image: NetworkImage(penerima.pathProfile),
+                        image: NetworkImage(penerima.pathFotoProfil),
                         fit: BoxFit.cover)*/
                   ),
             ),
@@ -51,7 +52,7 @@ class PenerimaListItem extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(bottom: 4, top: 4),
                   child: Text(
-                    penerima.namaDepan,
+                    penerima.namaDpn,
                     style: footnoteText.copyWith(
                         fontWeight: FontWeight.w700, color: blackColor),
                     maxLines: 1,
@@ -75,7 +76,7 @@ class PenerimaListItem extends StatelessWidget {
                     animation: true,
                     lineHeight: 4.0,
                     animationDuration: 2500,
-                    percent: penerima.jumlahDana.toDouble() / 500000.0,
+                    percent: double.parse(penerima.jumlahDana) / 500000.0,
                     linearStrokeCap: LinearStrokeCap.roundAll,
                     progressColor: primaryColor,
                   ),
@@ -92,7 +93,7 @@ class PenerimaListItem extends StatelessWidget {
                   child: Text(
                     NumberFormat.currency(
                             symbol: 'Rp. ', decimalDigits: 0, locale: 'id-ID')
-                        .format(penerima.jumlahDana),
+                        .format(double.parse(penerima.jumlahDana)),
                     style: footnoteText.copyWith(
                         fontWeight: FontWeight.w600, color: blackColor),
                   ),

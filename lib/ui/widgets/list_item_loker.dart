@@ -1,7 +1,8 @@
 part of 'widgets.dart';
 
 class LokerListItem extends StatelessWidget {
-  final Loker loker;
+  //final Loker loker;
+  final DonasiNonDana loker;
   final double itemWidth;
 
   LokerListItem({required this.loker, required this.itemWidth});
@@ -42,7 +43,7 @@ class LokerListItem extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(bottom: 4, top: 4),
                 child: Text(
-                  loker.posisi,
+                  loker.posisiLoker,
                   style: footnoteText.copyWith(
                       fontWeight: FontWeight.w700, color: blackColor),
                   maxLines: 1,
@@ -52,7 +53,7 @@ class LokerListItem extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(bottom: 12),
                 child: Text(
-                  loker.pendMin,
+                  loker.pendMinLoker,
                   style: footnoteText.copyWith(
                       fontWeight: FontWeight.w400, color: blackColor),
                   maxLines: 1,
@@ -63,7 +64,7 @@ class LokerListItem extends StatelessWidget {
                 width: itemWidth - 190,
                 margin: EdgeInsets.only(bottom: 8),
                 child: Text(
-                  loker.deskripsiLoker,
+                  loker.deskripsi,
                   style: footnoteText.copyWith(
                       fontWeight: FontWeight.w400, color: greyColor),
                   maxLines: 3,
@@ -77,7 +78,7 @@ class LokerListItem extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: (context) => DetailLoker(
-                                  loker: dummyLoker[0],
+                                  loker: dummyDonasiNonDana[2],
                                 )));
                   },
                   child: Text(
