@@ -98,7 +98,7 @@ class DetailArtikel extends StatelessWidget {
                                     children: [
                                       Container(
                                         child: Text(
-                                          artikel!.donatur.namaDpn,
+                                          artikel!.donatur!.namaDpn,
                                           style: captionText.copyWith(
                                               color: blackColor,
                                               fontWeight: FontWeight.w600),
@@ -123,7 +123,7 @@ class DetailArtikel extends StatelessWidget {
                               ),
                               Container(
                                 child: Text(
-                                  artikel!.judul,
+                                  artikel!.judul!,
                                   style: bodyTextField.copyWith(
                                       color: blackColor,
                                       fontWeight: FontWeight.w600),
@@ -134,7 +134,7 @@ class DetailArtikel extends StatelessWidget {
                               ),
                               Container(
                                 child: Text(
-                                  artikel!.deskripsi,
+                                  artikel!.deskripsi!,
                                   style: bodyTextField.copyWith(
                                       color: blackColor,
                                       fontWeight: FontWeight.w400),

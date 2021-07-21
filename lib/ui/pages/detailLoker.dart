@@ -54,7 +54,7 @@ class DetailLoker extends StatelessWidget {
                 ),
                 onPressed: () {
                   Navigator.of(context).pop();
-                  _launchUrl('tel:${loker!.donatur.noTelp}');
+                  _launchUrl('tel:${loker!.donatur!.noTelp}');
                 },
               ),
             ],
@@ -164,7 +164,7 @@ class DetailLoker extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        loker!.posisiLoker,
+                                        loker!.posisiLoker!,
                                         style: bodyTextField.copyWith(
                                             fontWeight: FontWeight.w600,
                                             color: blackColor,
@@ -202,7 +202,7 @@ class DetailLoker extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        loker!.pendMinLoker,
+                                        loker!.pendMinLoker!,
                                         style: bodyTextField.copyWith(
                                             fontWeight: FontWeight.w600,
                                             color: blackColor,
@@ -240,7 +240,7 @@ class DetailLoker extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        loker!.lokasiLoker,
+                                        loker!.lokasiLoker!,
                                         style: bodyTextField.copyWith(
                                             fontWeight: FontWeight.w600,
                                             color: blackColor,
@@ -289,7 +289,7 @@ class DetailLoker extends StatelessWidget {
                                 height: 8,
                               ),
                               Text(
-                                loker!.deskripsi,
+                                loker!.deskripsi!,
                                 style: bodyTextField.copyWith(
                                     fontWeight: FontWeight.w500,
                                     color: blackColor),

@@ -50,7 +50,7 @@ class ArtikelListItem extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(bottom: 4, top: 12),
                   child: Text(
-                    artikel.judul,
+                    artikel.judul!,
                     style: h5Text.copyWith(
                         fontWeight: FontWeight.w600,
                         color: blackColor,
@@ -61,7 +61,7 @@ class ArtikelListItem extends StatelessWidget {
                 ),
                 Container(
                   child: Text(
-                    artikel.deskripsi,
+                    artikel.deskripsi!,
                     style: captionText.copyWith(
                         fontWeight: FontWeight.w400,
                         color: blackColor,

@@ -4,21 +4,21 @@ enum StatusDonasiNonDana { terverifikasi, belumVerifikasi }
 enum KategoriDonasi { artikel, loker }
 
 class DonasiNonDana extends Equatable {
-  final int idDonasiNonDana;
-  final UserDonatur donatur;
-  final String judul;
-  final String deskripsi;
-  final String pathMedia;
-  final String posisiLoker;
-  final String pendMinLoker;
-  final String lokasiLoker;
+  final int? idDonasiNonDana;
+  final UserDonatur? donatur;
+  final String? judul;
+  final String? deskripsi;
+  final String? pathMedia;
+  final String? posisiLoker;
+  final String? pendMinLoker;
+  final String? lokasiLoker;
   //final StatusDonasi status;
-  final StatusDonasiNonDana status;
+  final StatusDonasiNonDana? status;
   //final KategoriDonasiNonDana kategoriDonasi;
-  final KategoriDonasi kategori;
+  final KategoriDonasi? kategori;
 
   DonasiNonDana(
-      this.idDonasiNonDana,
+      {this.idDonasiNonDana,
       this.donatur,
       this.judul,
       this.deskripsi,
@@ -27,10 +27,34 @@ class DonasiNonDana extends Equatable {
       this.pendMinLoker,
       this.lokasiLoker,
       this.status,
-      this.kategori);
+      this.kategori});
+
+  DonasiNonDana copyWith(
+      {int? id,
+      UserDonatur? donatur,
+      String? judul,
+      String? deskripsi,
+      String? pathMedia,
+      String? posisiLoker,
+      String? pendMinLoker,
+      String? lokasiLoker,
+      StatusDonasiNonDana? status,
+      KategoriDonasi? kategori}) {
+    return DonasiNonDana(
+        idDonasiNonDana: id ?? this.idDonasiNonDana,
+        donatur: donatur ?? this.donatur,
+        judul: judul ?? this.judul,
+        deskripsi: deskripsi ?? this.deskripsi,
+        pathMedia: pathMedia ?? this.pathMedia,
+        posisiLoker: posisiLoker ?? this.posisiLoker,
+        pendMinLoker: pendMinLoker ?? this.pendMinLoker,
+        lokasiLoker: lokasiLoker ?? this.lokasiLoker,
+        status: status ?? this.status,
+        kategori: kategori ?? this.kategori);
+  }
 
   @override
-  List<Object> get props => [
+  List<Object?> get props => [
         idDonasiNonDana,
         donatur,
         judul,
@@ -46,69 +70,69 @@ class DonasiNonDana extends Equatable {
 
 List<DonasiNonDana> dummyDonasiNonDana = [
   DonasiNonDana(
-      1,
-      dummyUserDonatur[0],
-      "A",
-      "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-      "images/artikelA.jpg",
-      "",
-      "",
-      "",
-      StatusDonasiNonDana.terverifikasi,
-      KategoriDonasi.artikel),
+      idDonasiNonDana: 1,
+      donatur: dummyUserDonatur[0],
+      judul: "A",
+      deskripsi: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      pathMedia: "images/artikelA.jpg",
+      posisiLoker: "",
+      pendMinLoker: "",
+      lokasiLoker: "",
+      status: StatusDonasiNonDana.terverifikasi,
+      kategori: KategoriDonasi.artikel),
   DonasiNonDana(
-      2,
-      dummyUserDonatur[1],
-      "B",
-      "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
-      "images/artikelB.jpg",
-      "",
-      "",
-      "",
-      StatusDonasiNonDana.terverifikasi,
-      KategoriDonasi.artikel),
+      idDonasiNonDana: 2,
+      donatur: dummyUserDonatur[1],
+      judul: "B",
+      deskripsi: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      pathMedia: "images/artikelB.jpg",
+      posisiLoker: "",
+      pendMinLoker: "",
+      lokasiLoker: "",
+      status: StatusDonasiNonDana.terverifikasi,
+      kategori: KategoriDonasi.artikel),
   DonasiNonDana(
-      3,
-      dummyUserDonatur[0],
-      "Aa",
-      "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-      "images/lokerA.jpg",
-      "Karyawan Toko",
-      "SMA/SMK",
-      "PT.AAA",
-      StatusDonasiNonDana.terverifikasi,
-      KategoriDonasi.loker),
+      idDonasiNonDana: 3,
+      donatur: dummyUserDonatur[0],
+      judul: "Aa",
+      deskripsi: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+      pathMedia: "images/lokerA.jpg",
+      posisiLoker: "Karyawan Toko",
+      pendMinLoker: "SMA/SMK",
+      lokasiLoker: "PT.AAA",
+      status: StatusDonasiNonDana.terverifikasi,
+      kategori: KategoriDonasi.loker),
   DonasiNonDana(
-      4,
-      dummyUserDonatur[1],
-      "Bb",
-      "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-      "images/lokerB.jpg",
-      "Admin",
-      "SMA/SMK",
-      "PT.BBB",
-      StatusDonasiNonDana.terverifikasi,
-      KategoriDonasi.loker),
+      idDonasiNonDana: 4,
+      donatur: dummyUserDonatur[1],
+      judul: "Bb",
+      deskripsi: "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+      pathMedia: "images/lokerB.jpg",
+      posisiLoker: "Admin",
+      pendMinLoker: "SMA/SMK",
+      lokasiLoker: "PT.BBB",
+      status: StatusDonasiNonDana.terverifikasi,
+      kategori: KategoriDonasi.loker),
   DonasiNonDana(
-      5,
-      dummyUserDonatur[1],
-      "Cc",
-      "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
-      "images/lokerC.jpg",
-      "Staff Akuntansi",
-      "D3 Akuntansi",
-      "PT.AAA",
-      StatusDonasiNonDana.belumVerifikasi,
-      KategoriDonasi.loker),
+      idDonasiNonDana: 5,
+      donatur: dummyUserDonatur[1],
+      judul: "Cc",
+      deskripsi: "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+      pathMedia: "images/lokerC.jpg",
+      posisiLoker: "Staff Akuntansi",
+      pendMinLoker: "D3 Akuntansi",
+      lokasiLoker: "PT.AAA",
+      status: StatusDonasiNonDana.belumVerifikasi,
+      kategori: KategoriDonasi.loker),
   DonasiNonDana(
-      6,
-      dummyUserDonatur[0],
-      "C",
-      "ccccccccccccccccccccccccccccccccc",
-      "images/artikelC.jpg",
-      "",
-      "",
-      "",
-      StatusDonasiNonDana.belumVerifikasi,
-      KategoriDonasi.artikel),
+      idDonasiNonDana: 6,
+      donatur: dummyUserDonatur[0],
+      judul: "C",
+      deskripsi: "ccccccccccccccccccccccccccccccccc",
+      pathMedia: "images/artikelC.jpg",
+      posisiLoker: "",
+      pendMinLoker: "",
+      lokasiLoker: "",
+      status: StatusDonasiNonDana.belumVerifikasi,
+      kategori: KategoriDonasi.artikel),
 ];

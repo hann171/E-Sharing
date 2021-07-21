@@ -43,7 +43,7 @@ class LokerListItem extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(bottom: 4, top: 4),
                 child: Text(
-                  loker.posisiLoker,
+                  loker.posisiLoker!,
                   style: footnoteText.copyWith(
                       fontWeight: FontWeight.w700, color: blackColor),
                   maxLines: 1,
@@ -53,7 +53,7 @@ class LokerListItem extends StatelessWidget {
               Container(
                 margin: EdgeInsets.only(bottom: 12),
                 child: Text(
-                  loker.pendMinLoker,
+                  loker.pendMinLoker!,
                   style: footnoteText.copyWith(
                       fontWeight: FontWeight.w400, color: blackColor),
                   maxLines: 1,
@@ -64,7 +64,7 @@ class LokerListItem extends StatelessWidget {
                 width: itemWidth - 190,
                 margin: EdgeInsets.only(bottom: 8),
                 child: Text(
-                  loker.deskripsi,
+                  loker.deskripsi!,
                   style: footnoteText.copyWith(
                       fontWeight: FontWeight.w400, color: greyColor),
                   maxLines: 3,

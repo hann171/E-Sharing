@@ -43,20 +43,20 @@ class DonasiPenerimaListItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      daftarDonasiDana!.donatur.namaDpn,
+                      daftarDonasiDana!.donatur!.namaDpn,
                       style: bodyTextField.copyWith(
                           color: blackColor, fontWeight: FontWeight.w500),
                     ),
                     Text(
                       NumberFormat.currency(
                               symbol: 'Rp. ', decimalDigits: 0, locale: 'id-ID')
-                          .format(double.parse(daftarDonasiDana!.jumlahDana)),
+                          .format(double.parse(daftarDonasiDana!.jumlahDana!)),
                       style: captionText.copyWith(
                           color: secondaryColor, fontWeight: FontWeight.w500),
                     ),
                     Text(
                       DateFormat('d MMMM y')
-                          .format(daftarDonasiDana!.tglDonasi),
+                          .format(daftarDonasiDana!.tglDonasi!),
                       style: captionText.copyWith(color: greyColor),
                     ),
                   ],

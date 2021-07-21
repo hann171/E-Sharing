@@ -10,7 +10,7 @@ class Riwayat extends StatefulWidget {
 class _RiwayatState extends State<Riwayat> {
   List<DonasiDana> daftarDonasiDana = dummyDonasiDana
       .where((element) =>
-          element.donatur.nikDonatur == "3302241701000004" &&
+          element.donatur?.nikDonatur == "3302241701000004" &&
               element.status == StatusDonasiDana.terverifikasi ||
           element.status == StatusDonasiDana.belumVerifikasi)
       .toList();

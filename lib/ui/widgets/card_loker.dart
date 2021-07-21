@@ -47,7 +47,7 @@ class CardLoker extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(left: 8, top: 4),
               child: Text(
-                loker.posisiLoker,
+                loker.posisiLoker!,
                 style: captionText.copyWith(
                     fontWeight: FontWeight.w500, color: blackColor),
                 maxLines: 1,
@@ -57,7 +57,7 @@ class CardLoker extends StatelessWidget {
             Container(
               padding: EdgeInsets.only(left: 8),
               child: Text(
-                loker.pendMinLoker,
+                loker.pendMinLoker!,
                 style: footnoteText.copyWith(
                     fontWeight: FontWeight.w400, color: greyColor),
                 maxLines: 1,

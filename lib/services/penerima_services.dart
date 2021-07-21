@@ -1,9 +1,9 @@
 part of 'services.dart';
 
 class PenerimaServices {
-  static Future<ApiReturnValue<List<User>>> getPenerima() async {
+  static Future<ApiReturnValue<List<UserPenerima>>> getPenerima() async {
     await Future.delayed(Duration(milliseconds: 500));
 
-    return ApiReturnValue(value: dummyUser);
+    return ApiReturnValue(value: dummyUserPenerima);
   }
 }

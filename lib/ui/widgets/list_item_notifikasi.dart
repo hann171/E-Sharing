@@ -61,13 +61,13 @@ class NotifikasiListItem extends StatelessWidget {
                                 symbol: 'Rp. ',
                                 decimalDigits: 0,
                                 locale: 'id-ID')
-                            .format(double.parse(daftarDonasiDana.jumlahDana)),
+                            .format(double.parse(daftarDonasiDana.jumlahDana!)),
                         style: captionText.copyWith(
                             color: secondaryColor, fontWeight: FontWeight.w500),
                       ),
                       Text(
                         DateFormat('d MMMM y')
-                            .format(daftarDonasiDana.tglDonasi),
+                            .format(daftarDonasiDana.tglDonasi!),
                         style: captionText.copyWith(color: greyColor),
                       ),
                     ],

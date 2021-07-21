@@ -12,12 +12,12 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  TextEditingController telpController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  bool isLoading = false;
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController telpController = TextEditingController();
-    TextEditingController passwordController = TextEditingController();
-    bool isLoading = false;
-
     return Scaffold(
         backgroundColor: whiteColor,
         resizeToAvoidBottomInset: true,
@@ -152,10 +152,7 @@ class _LoginState extends State<Login> {
                         (2 * defaultPaddingLR),
                     // ignore: dead_code
                     child: isLoading
-                        ? SpinKitCircle(
-                            size: 45,
-                            color: primaryColor,
-                          )
+                        ? loadingIndicator
                         : ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Stack(
