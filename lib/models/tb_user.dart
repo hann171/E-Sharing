@@ -102,7 +102,7 @@ List<User> dummyUser = [
       "images/c.jpg",
       "images/c.jpg",
       DateTime.now(),
-      "95000",
+      "225000",
       TipeUsers.penerima),
   User(
       "3404427140000005",
@@ -121,7 +121,7 @@ List<User> dummyUser = [
       "images/d.jpg",
       "images/d.jpg",
       DateTime.now(),
-      "75000",
+      "200000",
       TipeUsers.penerima),
   User(
       "3404427110000007",

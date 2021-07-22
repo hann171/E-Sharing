@@ -8,14 +8,25 @@ part 'donasi_state.dart';
 class DonasiCubit extends Cubit<DonasiState> {
   DonasiCubit() : super(DonasiInitial());
 
-  Future<void> getDonasiNonDana() async {
-    ApiReturnValue<List<DonasiNonDana>> result =
-        await DonasiNonDanaServices.getDonasiNonDana();
+  Future<void> getDonasiDana() async {
+    ApiReturnValue<List<DonasiDana>> result =
+        await DonasiDanaServices.getDonasiDana();
 
     if (result.value != null) {
-      emit(DonasiNonDanaLoaded(result.value!));
+      emit(DonasiDanaLoaded(result.value!));
     } else {
-      emit(DonasiNonDanaLoadingFailed(result.message!));
+      emit(DonasiDanaLoadingFailed(result.message!));
+    }
+  }
+
+  Future<bool> submitDonasiDana(DonasiDana donasiDana) async {
+    ApiReturnValue<DonasiDana> result = await DonasiDanaServices.submitDonasiDana(donasiDana);
+
+    if(result.value != null){
+      emit(DonasiDanaLoaded((state as DonasiDanaLoaded).donasiDana + [result.value!]));
+      return true;
+    }else{
+      return false;
     }
   }
 

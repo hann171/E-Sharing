@@ -3,8 +3,9 @@ part of 'pages.dart';
 class DetailPenerima extends StatelessWidget {
   //final Penerima? penerima;
   final DonasiDana? donasiDana;
+  final User? penerima;
 
-  DetailPenerima({this.donasiDana});
+  DetailPenerima({this.donasiDana, this.penerima});
 
   @override
   Widget build(BuildContext context) {
@@ -100,8 +101,8 @@ class DetailPenerima extends StatelessWidget {
                                               symbol: 'Rp. ',
                                               decimalDigits: 0,
                                               locale: 'id-ID')
-                                          .format(double.parse(
-                                              donasiDana!.penerima!.jumlahDana)),
+                                          .format(double.parse(donasiDana!
+                                              .penerima!.jumlahDana)),
                                       style: bodyTextField.copyWith(
                                           fontWeight: FontWeight.w500,
                                           color: secondaryColor),
@@ -127,7 +128,8 @@ class DetailPenerima extends StatelessWidget {
                                   animation: true,
                                   lineHeight: 10.0,
                                   animationDuration: 2500,
-                                  percent: double.parse(donasiDana!.penerima!.jumlahDana) /
+                                  percent: double.parse(
+                                          donasiDana!.penerima!.jumlahDana) /
                                       500000.0,
                                   linearStrokeCap: LinearStrokeCap.roundAll,
                                   progressColor: primaryColor,
@@ -330,7 +332,7 @@ class DetailPenerima extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                       donasiDana!.penerima!.jumlahTanggungan,
+                                        donasiDana!.penerima!.jumlahTanggungan,
                                         style: bodyTextField.copyWith(
                                             fontWeight: FontWeight.w600,
                                             color: blackColor,
@@ -378,7 +380,7 @@ class DetailPenerima extends StatelessWidget {
                                 SizedBox(
                                   height: 16,
                                 ),
-                                DonasiDetailPenerima()
+                                DonasiDetailPenerima(user: donasiDana?.penerima)
                               ],
                             )),
                       ]),
@@ -420,17 +422,15 @@ class DetailPenerima extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => PageDonasiDana(donasiDana: 
-                                    DonasiDana(
-                                      idDonasiDana: 6,
-                                      donatur: dummyUser[0],
-                                      penerima: dummyUser[2],
-                                      jumlahDana: "50000",
-                                      tglDonasi: DateTime.now(),
-                                      pathBuktiTransfer: "images/buktiTf.jpg"
-                                    )
-                                  
-                                  )));
+                                  builder: (context) => PageDonasiDana(
+                                      donasiDana: DonasiDana(
+                                          idDonasiDana: 6,
+                                          donatur: dummyUser[0],
+                                          penerima: dummyUser[2],
+                                          jumlahDana: "50000",
+                                          tglDonasi: DateTime.now(),
+                                          pathBuktiTransfer:
+                                              "images/buktiTf.jpg"))));
                         },
                         child: Text(
                           'Donasi sekarang',

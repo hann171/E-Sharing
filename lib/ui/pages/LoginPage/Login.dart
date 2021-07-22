@@ -206,6 +206,9 @@ class _LoginState extends State<Login> {
                                             .read<ArtikelCubit>()
                                             .getArtikel();
                                         context.read<UcapanCubit>().getUcapan();
+                                        context
+                                            .read<DonasiCubit>()
+                                            .getDonasiDana();
                                         Get.to(MainPage());
                                       } else {
                                         Get.snackbar("", "",

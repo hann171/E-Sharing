@@ -10,11 +10,12 @@ class DonasiBisnis extends StatefulWidget {
 class _DonasiBisnisState extends State<DonasiBisnis> {
   String? kategoriTerpilih;
   final bool isEnabled = false;
+
+  TextEditingController judulController = TextEditingController();
+  TextEditingController deskripsiController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    TextEditingController judulController = TextEditingController();
-    TextEditingController deskripsiController = TextEditingController();
-
     return Scaffold(
       resizeToAvoidBottomInset: true,
       body: SafeArea(
@@ -36,7 +37,7 @@ class _DonasiBisnisState extends State<DonasiBisnis> {
                     Container(
                       child: InkWell(
                         onTap: () {
-                          Navigator.pop(context);
+                          Get.back();
                         },
                       ),
                       width: 24,

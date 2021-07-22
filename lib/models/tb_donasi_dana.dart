@@ -83,7 +83,7 @@ List<DonasiDana> dummyDonasiDana = [
       jumlahDana: "50000",
       tglDonasi: DateTime.now(),
       pathBuktiTransfer: "image/donasidana.jpg",
-      status: StatusDonasiDana.belumVerifikasi),
+      status: StatusDonasiDana.terverifikasi),
   DonasiDana(
       idDonasiDana: 5,
       donatur: dummyUser[0],

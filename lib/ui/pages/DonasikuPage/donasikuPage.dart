@@ -45,8 +45,11 @@ class _DonasikuPageState extends State<DonasikuPage> {
                                       symbol: 'Rp. ',
                                       decimalDigits: 0,
                                       locale: 'id-ID')
-                                  .format(
-                                      double.parse(widget.donatur!.jumlahDana)),
+                                  .format(double.parse((context
+                                          .read<UserCubit>()
+                                          .state as UserLoaded)
+                                      .user
+                                      .jumlahDana)),
                               style: displaySmall.copyWith(
                                   fontWeight: FontWeight.w700,
                                   color: whiteColor),
@@ -83,7 +86,10 @@ class _DonasikuPageState extends State<DonasikuPage> {
                             Container(
                                 height:
                                     MediaQuery.of(context).size.height - 440,
-                                child: Riwayat(donatur: dummyUser[0]))
+                                child: Riwayat(
+                                    donatur: (context.read<UserCubit>().state
+                                            as UserLoaded)
+                                        .user))
                           ],
                         ),
                       )

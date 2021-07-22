@@ -60,10 +60,11 @@ class ProfilePage extends StatelessWidget {
                             Container(
                               child: InkWell(
                                 onTap: () {
-                                  Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => EditProfile()));
+                                  Get.to(EditProfile(
+                                    (context.read<UserCubit>().state
+                                            as UserLoaded)
+                                        .user,
+                                  ));
                                 },
                                 child: Text(
                                   'Edit profile',

@@ -27,10 +27,7 @@ class HomeButtonDonasi extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ListPenerima()));
+                    Get.to(ListPenerima());
                   },
                   child: Row(
                     children: [
@@ -64,10 +61,7 @@ class HomeButtonDonasi extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DonasiBisnis()));
+                    Get.to(DonasiBisnis());
                   },
                   child: Row(
                     children: [

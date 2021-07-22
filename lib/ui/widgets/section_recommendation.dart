@@ -39,34 +39,38 @@ class SectionRecommendation extends StatelessWidget {
             height: 208,
             width: double.infinity,
             child: BlocBuilder<PenerimaCubit, PenerimaState>(
-              builder: (_, state) => (state is PenerimaLoaded) ? ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  Row(
-                    children: state.penerima
-                        .map<Widget>((e) => (e.tipeUser == TipeUsers.penerima)
-                            ? Padding(
-                                padding: EdgeInsets.only(
-                                    right: (e == dummyUser.last) ? 0 : 8,
-                                    bottom: 8),
-                                child: GestureDetector(
-                                    onTap: () {
-                                      Get.to(DetailPenerima(
-                                        donasiDana: DonasiDana(
-                                            penerima: e,
-                                            donatur: (context
-                                                    .read<UserCubit>()
-                                                    .state as UserLoaded)
-                                                .user),
-                                      ));
-                                    },
-                                    child: CardRecommendation(e)),
-                              )
-                            : SizedBox())
-                        .toList(),
-                  )
-                ],
-              ) : Center(child: loadingIndicator),
+              builder: (_, state) => (state is PenerimaLoaded)
+                  ? ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Row(
+                          children: state.penerima
+                              .map<Widget>(
+                                  (e) => (e.tipeUser == TipeUsers.penerima)
+                                      ? Padding(
+                                          padding: EdgeInsets.only(
+                                              right:
+                                                  (e == dummyUser.last) ? 0 : 8,
+                                              bottom: 8),
+                                          child: GestureDetector(
+                                              onTap: () {
+                                                Get.to(DetailPenerima(
+                                                  donasiDana: DonasiDana(
+                                                      penerima: e,
+                                                      donatur: (context
+                                                              .read<UserCubit>()
+                                                              .state as UserLoaded)
+                                                          .user),
+                                                ));
+                                              },
+                                              child: CardRecommendation(e)),
+                                        )
+                                      : SizedBox())
+                              .toList(),
+                        )
+                      ],
+                    )
+                  : Center(child: loadingIndicator),
             ),
           )
         ],

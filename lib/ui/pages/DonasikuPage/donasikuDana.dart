@@ -39,7 +39,7 @@ class _PageDonasiDanaState extends State<PageDonasiDana> {
                       Container(
                         child: InkWell(
                           onTap: () {
-                            Navigator.pop(context);
+                            Get.back();
                           },
                         ),
                         width: 24,

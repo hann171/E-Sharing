@@ -4,3 +4,4 @@ part 'user_services.dart';
 part 'penerima_services.dart';
 part 'donasi_non_dana_services.dart';
 part 'ucapan_services.dart';
+part 'donasi_dana_servIces.dart';
