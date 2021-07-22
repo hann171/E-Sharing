@@ -28,14 +28,32 @@ class _ListPenerimaState extends State<ListPenerima> {
                 SizedBox(
                   height: 8,
                 ),
-                Builder(builder: (_) {
-                  List<UserPenerima> penerima = dummyUserPenerima;
-                  return Column(
-                    children: penerima
-                        .map<Widget>((e) => PenerimaListItem(
-                            penerima: e, itemWidth: listItemWidth))
-                        .toList(),
-                  );
+                BlocBuilder<PenerimaCubit, PenerimaState>(builder: (_, state) {
+                  if (state is PenerimaLoaded) {
+                    List<User> penerima = state.penerima;
+                    return Column(
+                      children: penerima
+                          .map<Widget>((e) => (e.tipeUser == TipeUsers.penerima)
+                              ? GestureDetector(
+                                  onTap: () {
+                                    Get.to(DetailPenerima(
+                                      donasiDana: DonasiDana(
+                                          penerima: e,
+                                          donatur: (context
+                                                  .read<UserCubit>()
+                                                  .state as UserLoaded)
+                                              .user),
+                                    ));
+                                  },
+                                  child: PenerimaListItem(
+                                      penerima: e, itemWidth: listItemWidth),
+                                )
+                              : SizedBox())
+                          .toList(),
+                    );
+                  } else {
+                    return Center(child: loadingIndicator);
+                  }
                 })
               ],
             ),

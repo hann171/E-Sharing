@@ -72,20 +72,10 @@ class LokerListItem extends StatelessWidget {
                 ),
               ),
               Container(
-                child: InkWell(
-                  onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => DetailLoker(
-                                  loker: dummyDonasiNonDana[2],
-                                )));
-                  },
-                  child: Text(
-                    'Lihat selengkapnya',
-                    style: footnoteText.copyWith(
-                        fontWeight: FontWeight.w400, color: accentColor),
-                  ),
+                child: Text(
+                  'Lihat selengkapnya',
+                  style: footnoteText.copyWith(
+                      fontWeight: FontWeight.w400, color: accentColor),
                 ),
               ),
             ],

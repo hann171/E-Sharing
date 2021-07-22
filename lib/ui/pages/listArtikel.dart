@@ -19,14 +19,34 @@ class _ListArtikelState extends State<ListArtikel> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Builder(builder: (_) {
-                  List<DonasiNonDana> artikel = dummyDonasiNonDana;
-                  return Column(
-                    children: artikel
-                        .map<Widget>((e) => (e.kategori==KategoriDonasi.loker) ? ArtikelListItem(
-                            artikel: e, itemWidth: listItemWidth) : SizedBox())
-                        .toList(),
-                  );
+                BlocBuilder<ArtikelCubit, ArtikelState>(builder: (_, state) {
+                  if (state is ArtikelLoaded) {
+                    List<DonasiNonDana> artikel = state.artikel;
+                    return Column(
+                      children: artikel
+                          .map<Widget>((e) => (e.kategori ==
+                                      KategoriDonasi.artikel &&
+                                  e.status == StatusDonasiNonDana.terverifikasi)
+                              ? GestureDetector(
+                                  onTap: () {
+                                    Get.to(DetailArtikel(
+                                      artikel: DonasiNonDana(
+                                        judul: e.judul,
+                                        donatur: e.donatur,
+                                        deskripsi: e.deskripsi,
+                                        pathMedia: e.pathMedia
+                                      ),
+                                    ));
+                                  },
+                                  child: ArtikelListItem(
+                                      artikel: e, itemWidth: listItemWidth),
+                                )
+                              : SizedBox())
+                          .toList(),
+                    );
+                  } else {
+                    return Center(child: loadingIndicator);
+                  }
                 })
               ],
             ),

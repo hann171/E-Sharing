@@ -3,7 +3,7 @@ part of 'pagesDonasiku.dart';
 class DonasikuPage extends StatefulWidget {
   //final Penerima? penerima;
   //final UserPenerima penerima;
-  final UserDonatur? donatur;
+  final User? donatur;
 
   DonasikuPage({this.donatur});
 
@@ -83,7 +83,7 @@ class _DonasikuPageState extends State<DonasikuPage> {
                             Container(
                                 height:
                                     MediaQuery.of(context).size.height - 440,
-                                child: Riwayat())
+                                child: Riwayat(donatur: dummyUser[0]))
                           ],
                         ),
                       )

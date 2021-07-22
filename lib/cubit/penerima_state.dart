@@ -10,7 +10,7 @@ abstract class PenerimaState extends Equatable {
 class PenerimaInitial extends PenerimaState {}
 
 class PenerimaLoaded extends PenerimaState {
-  final List<UserPenerima> penerima;
+  final List<User> penerima;
 
   PenerimaLoaded(this.penerima);
 

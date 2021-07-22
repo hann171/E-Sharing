@@ -1,3 +1,6 @@
+import 'package:e_sharing/cubit/cubit.dart';
+import 'package:e_sharing/cubit/loker_cubit.dart';
+import 'package:e_sharing/cubit/ucapan_cubit.dart';
 import 'package:e_sharing/models/models.dart';
 import 'package:e_sharing/theme.dart';
 import 'package:e_sharing/ui/pages/DonasikuPage/pagesDonasiku.dart';
@@ -8,6 +11,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'CustomBotNavBar.dart';
 part 'card_banner.dart';

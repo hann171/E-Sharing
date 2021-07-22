@@ -1,7 +1,7 @@
 part of 'pagesProfile.dart';
 
 class ProfilePage extends StatelessWidget {
-  final UserDonatur? donatur;
+  final User? donatur;
 
   ProfilePage({this.donatur});
 
@@ -49,9 +49,9 @@ class ProfilePage extends StatelessWidget {
                           children: [
                             Container(
                               child: Text(
-                                (donatur!.nikDonatur == "3302241701000004")
-                                    ? donatur!.namaDpn
-                                    : '',
+                                (context.read<UserCubit>().state as UserLoaded)
+                                    .user
+                                    .namaDpn,
                                 style: h3Text.copyWith(
                                     color: whiteColor,
                                     fontWeight: FontWeight.w600),

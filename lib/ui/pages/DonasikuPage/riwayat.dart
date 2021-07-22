@@ -1,7 +1,9 @@
 part of 'pagesDonasiku.dart';
 
 class Riwayat extends StatefulWidget {
-  Riwayat({Key? key}) : super(key: key);
+  final User? donatur;
+
+  Riwayat({this.donatur});
 
   @override
   _RiwayatState createState() => _RiwayatState();
@@ -10,8 +12,7 @@ class Riwayat extends StatefulWidget {
 class _RiwayatState extends State<Riwayat> {
   List<DonasiDana> daftarDonasiDana = dummyDonasiDana
       .where((element) =>
-          element.donatur?.nikDonatur == "3302241701000004" &&
-              element.status == StatusDonasiDana.terverifikasi ||
+          element.status == StatusDonasiDana.terverifikasi ||
           element.status == StatusDonasiDana.belumVerifikasi)
       .toList();
 
@@ -32,8 +33,12 @@ class _RiwayatState extends State<Riwayat> {
                 Builder(builder: (_) {
                   return Column(
                     children: daftarDonasiDana
-                        .map<Widget>((e) => RiwayatDonasiListItem(
-                            daftarDonasiDana: e, itemWidth: listItemWidth))
+                        .map<Widget>((e) =>
+                            (e.donatur!.nik == "3302241701000004")
+                                ? RiwayatDonasiListItem(
+                                    daftarDonasiDana: e,
+                                    itemWidth: listItemWidth)
+                                : SizedBox())
                         .toList(),
                   );
                 })

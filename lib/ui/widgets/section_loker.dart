@@ -36,20 +36,35 @@ class SectionLoker extends StatelessWidget {
           Container(
             height: 140,
             width: double.infinity,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Row(
-                  children: dummyDonasiNonDana
-                      .map<Widget>((e) => (e.kategori==KategoriDonasi.loker) ? Padding(
-                            padding: EdgeInsets.only(
-                                right: (e == dummyDonasiNonDana.last) ? 0 : 8,
-                                bottom: 8),
-                            child: CardLoker(e),
-                          ) : SizedBox())
-                      .toList(),
-                )
-              ],
+            child: BlocBuilder<LokerCubit, LokerState>(
+              builder: (_, state) => (state is LokerLoaded)
+                  ? ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Row(
+                          children: state.loker
+                              .map<Widget>((e) => (e.kategori ==
+                                          KategoriDonasi.loker &&
+                                      e.status ==
+                                          StatusDonasiNonDana.terverifikasi)
+                                  ? Padding(
+                                      padding: EdgeInsets.only(
+                                          right: (e == dummyDonasiNonDana.last)
+                                              ? 0
+                                              : 8,
+                                          bottom: 8),
+                                      child: GestureDetector(
+                                          onTap: () {
+                                            Get.to(DetailLoker(loker: e));
+                                          },
+                                          child: CardLoker(e)),
+                                    )
+                                  : SizedBox())
+                              .toList(),
+                        )
+                      ],
+                    )
+                  : Center(child: loadingIndicator),
             ),
           )
         ],

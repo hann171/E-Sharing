@@ -9,9 +9,7 @@ class DonasiDetailPenerima extends StatefulWidget {
 
 class _DonasiDetailPenerimaState extends State<DonasiDetailPenerima> {
   List<DonasiDana> daftarDonasiDana = dummyDonasiDana
-      .where((element) =>
-          element.penerima?.nikPenerima == "3304427110000005" &&
-          element.status == StatusDonasiDana.terverifikasi)
+      .where((element) => element.status == StatusDonasiDana.terverifikasi)
       .toList();
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,7 @@ class _DonasiDetailPenerimaState extends State<DonasiDetailPenerima> {
                   return Column(
                     children: daftarDonasiDana
                         .map<Widget>((e) =>
-                            (e.penerima?.nikPenerima == "3304427110000005")
+                            (e.penerima?.nik == "3304427110000005")
                                 ? DonasiPenerimaListItem(
                                     daftarDonasiDana: e,
                                     itemWidth: listItemWidth)

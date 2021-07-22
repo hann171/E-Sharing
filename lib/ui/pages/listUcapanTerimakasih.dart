@@ -19,14 +19,18 @@ class _ListUcapanState extends State<ListUcapan> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Builder(builder: (_) {
-                  List<UcapanTerimakasih> ucapan = dummyUcapanTerimakasih;
-                  return Column(
-                    children: ucapan
-                        .map<Widget>((e) =>
-                            UcapanListItem(ucapan: e, itemWidth: listItemWidth))
-                        .toList(),
-                  );
+                BlocBuilder<UcapanCubit, UcapanState>(builder: (_, state) {
+                  if (state is UcapanLoaded) {
+                    List<UcapanTerimakasih> ucapan = state.ucapan;
+                    return Column(
+                      children: ucapan
+                          .map<Widget>((e) => UcapanListItem(
+                              ucapan: e, itemWidth: listItemWidth))
+                          .toList(),
+                    );
+                  } else {
+                    return Center(child: loadingIndicator);
+                  }
                 })
               ],
             ),

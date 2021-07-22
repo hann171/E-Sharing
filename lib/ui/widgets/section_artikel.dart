@@ -38,20 +38,37 @@ class SectionArtikel extends StatelessWidget {
           Container(
             height: 152,
             width: double.infinity,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Row(
-                  children: dummyDonasiNonDana
-                      .map<Widget>((e) => (e.kategori==KategoriDonasi.artikel) ? Padding(
-                            padding: EdgeInsets.only(
-                                right: (e == dummyDonasiNonDana.last) ? 0 : 8,
-                                bottom: 8),
-                            child: CardArtikel(e),
-                          ) : SizedBox())
-                      .toList(),
-                )
-              ],
+            child: BlocBuilder<ArtikelCubit, ArtikelState>(
+              builder: (_, state) => (state is ArtikelLoaded)
+                  ? ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Row(
+                          children: state.artikel
+                              .map<Widget>((e) => (e.kategori ==
+                                          KategoriDonasi.artikel &&
+                                      e.status ==
+                                          StatusDonasiNonDana.terverifikasi)
+                                  ? Padding(
+                                      padding: EdgeInsets.only(
+                                          right: (e == dummyDonasiNonDana.last)
+                                              ? 0
+                                              : 8,
+                                          bottom: 8),
+                                      child: GestureDetector(
+                                          onTap: () {
+                                            Get.to(DetailArtikel(
+                                              artikel: e,
+                                            ));
+                                          },
+                                          child: CardArtikel(e)),
+                                    )
+                                  : SizedBox())
+                              .toList(),
+                        )
+                      ],
+                    )
+                  : Center(child: loadingIndicator),
             ),
           )
         ],

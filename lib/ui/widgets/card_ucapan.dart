@@ -21,7 +21,7 @@ class CardUcapan extends StatelessWidget {
                 color: Color(0xff252525).withOpacity(0.08))
           ]),
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.only(left: 12, top: 12, bottom: 8, right: 12),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -72,19 +72,6 @@ class CardUcapan extends StatelessWidget {
                     fontWeight: FontWeight.w400, color: blackColor),
                 maxLines: 4,
                 overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Container(
-              child: InkWell(
-                onTap: () {},
-                child: Text(
-                  'Lihat selengkapnya',
-                  style: footnoteText.copyWith(
-                      fontWeight: FontWeight.w400, color: greyColor),
-                ),
               ),
             ),
           ],

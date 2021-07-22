@@ -4,8 +4,8 @@ enum StatusDonasiDana { terverifikasi, belumVerifikasi }
 
 class DonasiDana extends Equatable {
   final int? idDonasiDana;
-  final UserDonatur? donatur;
-  final UserPenerima? penerima;
+  final User? donatur;
+  final User? penerima;
   final String? jumlahDana;
   final DateTime? tglDonasi;
   final String? pathBuktiTransfer;
@@ -23,8 +23,8 @@ class DonasiDana extends Equatable {
 
   DonasiDana copyWith(
       {int? id,
-      UserDonatur? donatur,
-      UserPenerima? penerima,
+      User? donatur,
+      User? penerima,
       String? jumlahDana,
       DateTime? tglDonasi,
       String? pathBuktiTransfer,
@@ -54,40 +54,40 @@ class DonasiDana extends Equatable {
 List<DonasiDana> dummyDonasiDana = [
   DonasiDana(
       idDonasiDana: 1,
-      donatur: dummyUserDonatur[0],
-      penerima: dummyUserPenerima[0],
+      donatur: dummyUser[0],
+      penerima: dummyUser[2],
       jumlahDana: "100000",
       tglDonasi: DateTime.now(),
       pathBuktiTransfer: "image/donasidana.jpg",
       status: StatusDonasiDana.terverifikasi),
   DonasiDana(
       idDonasiDana: 2,
-      donatur: dummyUserDonatur[1],
-      penerima: dummyUserPenerima[0],
+      donatur: dummyUser[1],
+      penerima: dummyUser[2],
       jumlahDana: "125000",
       tglDonasi: DateTime.now(),
       pathBuktiTransfer: "image/donasidana.jpg",
       status: StatusDonasiDana.terverifikasi),
   DonasiDana(
       idDonasiDana: 3,
-      donatur: dummyUserDonatur[1],
-      penerima: dummyUserPenerima[1],
+      donatur: dummyUser[1],
+      penerima: dummyUser[3],
       jumlahDana: "200000",
       tglDonasi: DateTime.now(),
       pathBuktiTransfer: "image/donasidana.jpg",
       status: StatusDonasiDana.terverifikasi),
   DonasiDana(
       idDonasiDana: 4,
-      donatur: dummyUserDonatur[1],
-      penerima: dummyUserPenerima[0],
+      donatur: dummyUser[0],
+      penerima: dummyUser[3],
       jumlahDana: "50000",
       tglDonasi: DateTime.now(),
       pathBuktiTransfer: "image/donasidana.jpg",
       status: StatusDonasiDana.belumVerifikasi),
   DonasiDana(
       idDonasiDana: 5,
-      donatur: dummyUserDonatur[0],
-      penerima: dummyUserPenerima[0],
+      donatur: dummyUser[0],
+      penerima: dummyUser[4],
       jumlahDana: "75000",
       tglDonasi: DateTime.now(),
       pathBuktiTransfer: "image/donasidana.jpg",

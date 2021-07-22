@@ -3,20 +3,19 @@ import 'package:e_sharing/models/models.dart';
 import 'package:e_sharing/services/services.dart';
 import 'package:equatable/equatable.dart';
 
-part 'donasi_state.dart';
+part 'loker_state.dart';
 
-class DonasiCubit extends Cubit<DonasiState> {
-  DonasiCubit() : super(DonasiInitial());
+class LokerCubit extends Cubit<LokerState> {
+  LokerCubit() : super(LokerInitial());
 
-  Future<void> getDonasiNonDana() async {
+  Future<void> getLoker() async {
     ApiReturnValue<List<DonasiNonDana>> result =
         await DonasiNonDanaServices.getDonasiNonDana();
 
     if (result.value != null) {
-      emit(DonasiNonDanaLoaded(result.value!));
+      emit(LokerLoaded(result.value!));
     } else {
-      emit(DonasiNonDanaLoadingFailed(result.message!));
+      emit(LokerLoadingFailed(result.message!));
     }
   }
-
 }

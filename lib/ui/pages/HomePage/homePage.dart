@@ -1,7 +1,7 @@
 part of 'pagesHome.dart';
 
 class HomePage extends StatefulWidget {
-  final UserDonatur? donatur;
+  final User? donatur;
 
   HomePage({this.donatur});
 
@@ -44,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Hi, ' + widget.donatur!.namaDpn,
+                              'Hi, ' + (context.read<UserCubit>().state as UserLoaded).user.namaDpn,
                               style:
                                   h3Text.copyWith(color: whiteColor, height: 1),
                             ),

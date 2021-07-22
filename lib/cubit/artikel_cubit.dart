@@ -3,20 +3,19 @@ import 'package:e_sharing/models/models.dart';
 import 'package:e_sharing/services/services.dart';
 import 'package:equatable/equatable.dart';
 
-part 'donasi_state.dart';
+part 'artikel_state.dart';
 
-class DonasiCubit extends Cubit<DonasiState> {
-  DonasiCubit() : super(DonasiInitial());
+class ArtikelCubit extends Cubit<ArtikelState> {
+  ArtikelCubit() : super(ArtikelInitial());
 
-  Future<void> getDonasiNonDana() async {
+  Future<void> getArtikel() async {
     ApiReturnValue<List<DonasiNonDana>> result =
         await DonasiNonDanaServices.getDonasiNonDana();
 
     if (result.value != null) {
-      emit(DonasiNonDanaLoaded(result.value!));
+      emit(ArtikelLoaded(result.value!));
     } else {
-      emit(DonasiNonDanaLoadingFailed(result.message!));
+      emit(ArtikelLoadingFailed(result.message!));
     }
   }
-
 }

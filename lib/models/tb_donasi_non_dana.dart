@@ -5,7 +5,7 @@ enum KategoriDonasi { artikel, loker }
 
 class DonasiNonDana extends Equatable {
   final int? idDonasiNonDana;
-  final UserDonatur? donatur;
+  final User? donatur;
   final String? judul;
   final String? deskripsi;
   final String? pathMedia;
@@ -31,7 +31,7 @@ class DonasiNonDana extends Equatable {
 
   DonasiNonDana copyWith(
       {int? id,
-      UserDonatur? donatur,
+      User? donatur,
       String? judul,
       String? deskripsi,
       String? pathMedia,
@@ -71,7 +71,7 @@ class DonasiNonDana extends Equatable {
 List<DonasiNonDana> dummyDonasiNonDana = [
   DonasiNonDana(
       idDonasiNonDana: 1,
-      donatur: dummyUserDonatur[0],
+      donatur: dummyUser[0],
       judul: "A",
       deskripsi: "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
       pathMedia: "images/artikelA.jpg",
@@ -82,7 +82,7 @@ List<DonasiNonDana> dummyDonasiNonDana = [
       kategori: KategoriDonasi.artikel),
   DonasiNonDana(
       idDonasiNonDana: 2,
-      donatur: dummyUserDonatur[1],
+      donatur: dummyUser[1],
       judul: "B",
       deskripsi: "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
       pathMedia: "images/artikelB.jpg",
@@ -93,7 +93,7 @@ List<DonasiNonDana> dummyDonasiNonDana = [
       kategori: KategoriDonasi.artikel),
   DonasiNonDana(
       idDonasiNonDana: 3,
-      donatur: dummyUserDonatur[0],
+      donatur: dummyUser[0],
       judul: "Aa",
       deskripsi: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
       pathMedia: "images/lokerA.jpg",
@@ -104,7 +104,7 @@ List<DonasiNonDana> dummyDonasiNonDana = [
       kategori: KategoriDonasi.loker),
   DonasiNonDana(
       idDonasiNonDana: 4,
-      donatur: dummyUserDonatur[1],
+      donatur: dummyUser[1],
       judul: "Bb",
       deskripsi: "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
       pathMedia: "images/lokerB.jpg",
@@ -115,7 +115,7 @@ List<DonasiNonDana> dummyDonasiNonDana = [
       kategori: KategoriDonasi.loker),
   DonasiNonDana(
       idDonasiNonDana: 5,
-      donatur: dummyUserDonatur[1],
+      donatur: dummyUser[1],
       judul: "Cc",
       deskripsi: "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
       pathMedia: "images/lokerC.jpg",
@@ -126,7 +126,7 @@ List<DonasiNonDana> dummyDonasiNonDana = [
       kategori: KategoriDonasi.loker),
   DonasiNonDana(
       idDonasiNonDana: 6,
-      donatur: dummyUserDonatur[0],
+      donatur: dummyUser[0],
       judul: "C",
       deskripsi: "ccccccccccccccccccccccccccccccccc",
       pathMedia: "images/artikelC.jpg",

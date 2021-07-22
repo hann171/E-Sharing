@@ -34,22 +34,29 @@ class SectionUcapan extends StatelessWidget {
             height: 8,
           ),
           Container(
-            height: 160,
+            height: 136,
             width: double.infinity,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              children: [
-                Row(
-                  children: dummyUcapanTerimakasih
-                      .map<Widget>((e) => Padding(
-                            padding: EdgeInsets.only(
-                                right: (e == dummyUcapanTerimakasih.last) ? 0 : 8,
-                                bottom: 8),
-                            child: CardUcapan(e),
-                          ))
-                      .toList(),
-                )
-              ],
+            child: BlocBuilder<UcapanCubit, UcapanState>(
+              builder: (_, state) => (state is UcapanLoaded)
+                  ? ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: [
+                        Row(
+                          children: state.ucapan
+                              .map<Widget>((e) => Padding(
+                                    padding: EdgeInsets.only(
+                                        right:
+                                            (e == dummyUcapanTerimakasih.last)
+                                                ? 0
+                                                : 8,
+                                        bottom: 8),
+                                    child: CardUcapan(e),
+                                  ))
+                              .toList(),
+                        )
+                      ],
+                    )
+                  : Center(child: loadingIndicator),
             ),
           )
         ],

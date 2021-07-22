@@ -27,7 +27,7 @@ class _NotifikasiState extends State<Notifikasi> {
                   return Column(
                     children: daftarDonasiDana
                         .map<Widget>((e) =>
-                            (e.donatur?.nikDonatur == "3302241701000004")
+                            (e.donatur?.nik == "3302241701000004")
                                 ? NotifikasiListItem(
                                     daftarDonasiDana: e,
                                     itemWidth: listItemWidth)

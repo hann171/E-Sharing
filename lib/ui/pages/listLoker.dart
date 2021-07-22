@@ -19,14 +19,35 @@ class _ListLokerState extends State<ListLoker> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Builder(builder: (_) {
-                  List<DonasiNonDana> loker = dummyDonasiNonDana;
-                  return Column(
-                    children: loker
-                        .map<Widget>((e) => (e.kategori==KategoriDonasi.loker) ?
-                            LokerListItem(loker: e, itemWidth: listItemWidth) : SizedBox())
-                        .toList(),
-                  );
+                BlocBuilder<LokerCubit, LokerState>(builder: (_, state) {
+                  if (state is LokerLoaded) {
+                    List<DonasiNonDana> loker = state.loker;
+                    return Column(
+                      children: loker
+                          .map<Widget>((e) => (e.kategori ==
+                                      KategoriDonasi.loker &&
+                                  e.status == StatusDonasiNonDana.terverifikasi)
+                              ? GestureDetector(
+                                  onTap: () {
+                                    Get.to(DetailLoker(
+                                      loker: DonasiNonDana(
+                                          judul: e.judul,
+                                          deskripsi: e.deskripsi,
+                                          posisiLoker: e.posisiLoker,
+                                          pendMinLoker: e.pendMinLoker,
+                                          lokasiLoker: e.lokasiLoker,
+                                          pathMedia: e.pathMedia),
+                                    ));
+                                  },
+                                  child: LokerListItem(
+                                      loker: e, itemWidth: listItemWidth),
+                                )
+                              : SizedBox())
+                          .toList(),
+                    );
+                  } else {
+                    return Center(child: loadingIndicator);
+                  }
                 })
               ],
             ),

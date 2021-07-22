@@ -1,5 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:e_sharing/cubit/cubit.dart';
 import 'package:e_sharing/models/models.dart';
 import 'package:e_sharing/services/services.dart';
 import 'package:equatable/equatable.dart';
@@ -10,7 +9,7 @@ class PenerimaCubit extends Cubit<PenerimaState> {
   PenerimaCubit() : super(PenerimaInitial());
 
   Future<void> getPenerima() async {
-    ApiReturnValue<List<UserPenerima>> result =
+    ApiReturnValue<List<User>> result =
         await PenerimaServices.getPenerima();
 
     if (result.value != null) {

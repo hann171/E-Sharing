@@ -1,6 +1,10 @@
 part of 'pagesDonasiku.dart';
 
 class PageDonasiDana extends StatefulWidget {
+  final DonasiDana? donasiDana;
+
+  PageDonasiDana({this.donasiDana});
+
   @override
   _PageDonasiDanaState createState() => _PageDonasiDanaState();
 }

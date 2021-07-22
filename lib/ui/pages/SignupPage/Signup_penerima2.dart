@@ -1,7 +1,6 @@
 import 'package:e_sharing/ui/pages/LoginPage/Login.dart';
 import 'package:flutter/material.dart';
 import 'package:e_sharing/theme.dart';
-import 'package:get/get.dart';
 
 class DaftarPenerima2 extends StatefulWidget {
   DaftarPenerima2({Key? key}) : super(key: key);

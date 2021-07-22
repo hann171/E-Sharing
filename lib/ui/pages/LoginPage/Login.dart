@@ -1,8 +1,13 @@
+import 'package:e_sharing/cubit/cubit.dart';
+import 'package:e_sharing/cubit/ucapan_cubit.dart';
 import 'package:e_sharing/ui/pages/SignupPage/Signup_home.dart';
 import 'package:e_sharing/theme.dart';
 import 'package:e_sharing/ui/pages/main_page.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -12,7 +17,7 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController telpController = TextEditingController();
+  TextEditingController nikController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool isLoading = false;
 
@@ -76,7 +81,7 @@ class _LoginState extends State<Login> {
                               ),
                             ),
                             TextFormField(
-                              controller: telpController,
+                              controller: nikController,
                               decoration: InputDecoration(
                                 contentPadding: EdgeInsets.all(16),
                                 focusedBorder: OutlineInputBorder(
@@ -175,12 +180,56 @@ class _LoginState extends State<Login> {
                                             MediaQuery.of(context).size.width -
                                                 defaultPaddingLR,
                                             56)),
-                                    onPressed: () {
-                                      Navigator.pushAndRemoveUntil(
+                                    onPressed: () async {
+                                      /*Navigator.pushAndRemoveUntil(
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) => MainPage()),
-                                          (route) => false);
+                                          (route) => false);*/
+
+                                      setState(() {
+                                        isLoading = true;
+                                      });
+
+                                      await context.read<UserCubit>().signIn(
+                                          nikController.text,
+                                          passwordController.text);
+                                      UserState state =
+                                          context.read<UserCubit>().state;
+
+                                      if (state is UserLoaded) {
+                                        context
+                                            .read<PenerimaCubit>()
+                                            .getPenerima();
+                                        context.read<LokerCubit>().getLoker();
+                                        context
+                                            .read<ArtikelCubit>()
+                                            .getArtikel();
+                                        context.read<UcapanCubit>().getUcapan();
+                                        Get.to(MainPage());
+                                      } else {
+                                        Get.snackbar("", "",
+                                            backgroundColor: primaryColor,
+                                            icon: Icon(
+                                              CupertinoIcons.multiply_circle,
+                                              color: whiteColor,
+                                            ),
+                                            titleText: Text(
+                                              "Login gagal",
+                                              style: h3Text.copyWith(
+                                                  color: whiteColor,
+                                                  fontWeight: FontWeight.w600),
+                                            ),
+                                            messageText: Text(
+                                              (state as UserLoadingFailed)
+                                                  .message,
+                                              style: bodyTextField.copyWith(
+                                                  color: whiteColor),
+                                            ));
+                                        setState(() {
+                                          isLoading = false;
+                                        });
+                                      }
                                     },
                                     child: Text(
                                       'Login',
