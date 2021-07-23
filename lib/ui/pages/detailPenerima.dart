@@ -419,18 +419,11 @@ class DetailPenerima extends StatelessWidget {
                                     defaultPaddingLR,
                                 56)),
                         onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => PageDonasiDana(
-                                      donasiDana: DonasiDana(
-                                          idDonasiDana: 6,
-                                          donatur: dummyUser[0],
-                                          penerima: dummyUser[2],
-                                          jumlahDana: "50000",
-                                          tglDonasi: DateTime.now(),
-                                          pathBuktiTransfer:
-                                              "images/buktiTf.jpg"))));
+                          Get.to(PageDonasiDana(
+                            donasiDana: donasiDana?.copyWith(
+                              penerima: penerima,
+                            ),
+                          ));
                         },
                         child: Text(
                           'Donasi sekarang',

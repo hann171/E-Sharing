@@ -1,5 +1,4 @@
 import 'package:e_sharing/cubit/cubit.dart';
-import 'package:e_sharing/cubit/loker_cubit.dart';
 import 'package:e_sharing/cubit/ucapan_cubit.dart';
 import 'package:e_sharing/models/models.dart';
 import 'package:e_sharing/theme.dart';

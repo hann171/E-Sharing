@@ -1,6 +1,5 @@
 import 'package:e_sharing/Splash_screen.dart';
 import 'package:e_sharing/cubit/cubit.dart';
-import 'package:e_sharing/cubit/loker_cubit.dart';
 import 'package:e_sharing/cubit/ucapan_cubit.dart';
 import 'package:e_sharing/theme.dart';
 import 'package:e_sharing/ui/pages/LoginPage/Login.dart';
@@ -23,8 +22,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => UserCubit()),
         BlocProvider(create: (context) => PenerimaCubit()),
         BlocProvider(create: (context) => DonasiCubit()),
-        BlocProvider(create: (context) => LokerCubit()),
-        BlocProvider(create: (context) => ArtikelCubit()),
+        BlocProvider(create: (context) => DonasiNonDanaCubit()),
         BlocProvider(create: (context) => UcapanCubit())
       ],
       child: GetMaterialApp(

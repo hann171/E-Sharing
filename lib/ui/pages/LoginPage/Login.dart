@@ -201,14 +201,14 @@ class _LoginState extends State<Login> {
                                         context
                                             .read<PenerimaCubit>()
                                             .getPenerima();
-                                        context.read<LokerCubit>().getLoker();
-                                        context
-                                            .read<ArtikelCubit>()
-                                            .getArtikel();
+                                        
                                         context.read<UcapanCubit>().getUcapan();
                                         context
                                             .read<DonasiCubit>()
                                             .getDonasiDana();
+                                            context
+                                            .read<DonasiNonDanaCubit>()
+                                            .getDonasiNonDana();
                                         Get.to(MainPage());
                                       } else {
                                         Get.snackbar("", "",

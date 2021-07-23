@@ -20,14 +20,15 @@ class DonasiCubit extends Cubit<DonasiState> {
   }
 
   Future<bool> submitDonasiDana(DonasiDana donasiDana) async {
-    ApiReturnValue<DonasiDana> result = await DonasiDanaServices.submitDonasiDana(donasiDana);
+    ApiReturnValue<DonasiDana> result =
+        await DonasiDanaServices.submitDonasiDana(donasiDana);
 
-    if(result.value != null){
-      emit(DonasiDanaLoaded((state as DonasiDanaLoaded).donasiDana + [result.value!]));
+    if (result.value != null) {
+      emit(DonasiDanaLoaded(
+          (state as DonasiDanaLoaded).donasiDana + [result.value!]));
       return true;
-    }else{
+    } else {
       return false;
     }
   }
-
 }

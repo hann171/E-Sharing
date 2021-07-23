@@ -1,7 +1,9 @@
 part of 'pagesDonasiku.dart';
 
 class DonasiBisnis extends StatefulWidget {
-  DonasiBisnis({Key? key}) : super(key: key);
+  final DonasiNonDana? donasiNonDana;
+
+  DonasiBisnis({this.donasiNonDana});
 
   @override
   _DonasiBisnisState createState() => _DonasiBisnisState();
@@ -10,6 +12,7 @@ class DonasiBisnis extends StatefulWidget {
 class _DonasiBisnisState extends State<DonasiBisnis> {
   String? kategoriTerpilih;
   final bool isEnabled = false;
+  bool isLoading = false;
 
   TextEditingController judulController = TextEditingController();
   TextEditingController deskripsiController = TextEditingController();
@@ -121,7 +124,7 @@ class _DonasiBisnisState extends State<DonasiBisnis> {
                             keyboardType: TextInputType.text,
                             style: bodyTextField.copyWith(
                               color: blackColor,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                         ],
@@ -208,7 +211,7 @@ class _DonasiBisnisState extends State<DonasiBisnis> {
                             keyboardType: TextInputType.text,
                             style: bodyTextField.copyWith(
                               color: blackColor,
-                              fontWeight: FontWeight.w600,
+                              fontWeight: FontWeight.w400,
                             ),
                             maxLength: 500,
                             maxLines: 6,
@@ -223,42 +226,85 @@ class _DonasiBisnisState extends State<DonasiBisnis> {
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(10),
-                    child: Stack(
-                      children: <Widget>[
-                        Positioned.fill(
-                          child: Container(
-                            decoration: BoxDecoration(color: primaryColor),
+                  (isLoading)
+                      ? Center(child: loadingIndicator)
+                      : ClipRRect(
+                          borderRadius: BorderRadius.circular(10),
+                          child: Stack(
+                            children: <Widget>[
+                              Positioned.fill(
+                                child: Container(
+                                  decoration:
+                                      BoxDecoration(color: primaryColor),
+                                ),
+                              ),
+                              Center(
+                                child: TextButton(
+                                  style: TextButton.styleFrom(
+                                      padding: EdgeInsets.symmetric(
+                                        vertical: 16,
+                                      ),
+                                      primary: whiteColor,
+                                      textStyle: h5Text,
+                                      minimumSize: Size(
+                                          MediaQuery.of(context).size.width -
+                                              defaultPaddingLR,
+                                          56)),
+                                  onPressed: () async {
+                                    setState(() {
+                                      isLoading = true;
+                                    });
+
+                                    bool result = await context
+                                        .read<DonasiNonDanaCubit>()
+                                        .submitDonasiNonDana(
+                                            widget.donasiNonDana!.copyWith(
+                                          donatur: (context
+                                                  .read<UserCubit>()
+                                                  .state as UserLoaded)
+                                              .user,
+                                          posisiLoker: '',
+                                          lokasiLoker: '',
+                                          pendMinLoker: '',
+                                          judul: judulController.text,
+                                          deskripsi: deskripsiController.text,
+                                          kategori:
+                                              (kategoriTerpilih == 'Artikel')
+                                                  ? KategoriDonasi.artikel
+                                                  : KategoriDonasi.loker,
+                                        ));
+
+                                    if (result == true) {
+                                      Get.to(Welldone());
+                                    } else {
+                                      setState(() {
+                                        isLoading = false;
+                                      });
+                                      Get.snackbar("", "",
+                                          backgroundColor: accentColor,
+                                          icon: Icon(
+                                            CupertinoIcons.multiply_circle,
+                                            color: whiteColor,
+                                          ),
+                                          titleText: Text('Donasi gagal',
+                                              style: h3Text.copyWith(
+                                                  color: whiteColor,
+                                                  fontWeight: FontWeight.w600)),
+                                          messageText: Text(
+                                              'Coba lagi beberapa saat lagi',
+                                              style: bodyTextField.copyWith(
+                                                  color: whiteColor)));
+                                    }
+                                  },
+                                  child: Text(
+                                    'Kirim donasi',
+                                    style: buttonText,
+                                  ),
+                                ),
+                              )
+                            ],
                           ),
                         ),
-                        Center(
-                          child: TextButton(
-                            style: TextButton.styleFrom(
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 16,
-                                ),
-                                primary: whiteColor,
-                                textStyle: h5Text,
-                                minimumSize: Size(
-                                    MediaQuery.of(context).size.width -
-                                        defaultPaddingLR,
-                                    56)),
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Welldone()));
-                            },
-                            child: Text(
-                              'Kirim donasi',
-                              style: buttonText,
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
                 ],
               ))
             ],

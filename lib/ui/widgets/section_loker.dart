@@ -36,13 +36,13 @@ class SectionLoker extends StatelessWidget {
           Container(
             height: 140,
             width: double.infinity,
-            child: BlocBuilder<LokerCubit, LokerState>(
-              builder: (_, state) => (state is LokerLoaded)
+            child: BlocBuilder<DonasiNonDanaCubit, DonasiNonDanaState>(
+              builder: (_, state) => (state is DonasiNonDanaLoaded)
                   ? ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
                         Row(
-                          children: state.loker
+                          children: state.donasiNonDana
                               .map<Widget>((e) => (e.kategori ==
                                           KategoriDonasi.loker &&
                                       e.status ==

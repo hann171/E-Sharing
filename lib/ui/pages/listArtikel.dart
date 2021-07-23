@@ -19,9 +19,10 @@ class _ListArtikelState extends State<ListArtikel> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BlocBuilder<ArtikelCubit, ArtikelState>(builder: (_, state) {
-                  if (state is ArtikelLoaded) {
-                    List<DonasiNonDana> artikel = state.artikel;
+                BlocBuilder<DonasiNonDanaCubit, DonasiNonDanaState>(
+                    builder: (_, state) {
+                  if (state is DonasiNonDanaLoaded) {
+                    List<DonasiNonDana> artikel = state.donasiNonDana;
                     return Column(
                       children: artikel
                           .map<Widget>((e) => (e.kategori ==
@@ -31,11 +32,10 @@ class _ListArtikelState extends State<ListArtikel> {
                                   onTap: () {
                                     Get.to(DetailArtikel(
                                       artikel: DonasiNonDana(
-                                        judul: e.judul,
-                                        donatur: e.donatur,
-                                        deskripsi: e.deskripsi,
-                                        pathMedia: e.pathMedia
-                                      ),
+                                          judul: e.judul,
+                                          donatur: e.donatur,
+                                          deskripsi: e.deskripsi,
+                                          pathMedia: e.pathMedia),
                                     ));
                                   },
                                   child: ArtikelListItem(

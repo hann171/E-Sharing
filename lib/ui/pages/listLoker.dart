@@ -19,9 +19,9 @@ class _ListLokerState extends State<ListLoker> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                BlocBuilder<LokerCubit, LokerState>(builder: (_, state) {
-                  if (state is LokerLoaded) {
-                    List<DonasiNonDana> loker = state.loker;
+                BlocBuilder<DonasiNonDanaCubit, DonasiNonDanaState>(builder: (_, state) {
+                  if (state is DonasiNonDanaLoaded) {
+                    List<DonasiNonDana> loker = state.donasiNonDana;
                     return Column(
                       children: loker
                           .map<Widget>((e) => (e.kategori ==

@@ -38,13 +38,13 @@ class SectionArtikel extends StatelessWidget {
           Container(
             height: 152,
             width: double.infinity,
-            child: BlocBuilder<ArtikelCubit, ArtikelState>(
-              builder: (_, state) => (state is ArtikelLoaded)
+            child: BlocBuilder<DonasiNonDanaCubit, DonasiNonDanaState>(
+              builder: (_, state) => (state is DonasiNonDanaLoaded)
                   ? ListView(
                       scrollDirection: Axis.horizontal,
                       children: [
                         Row(
-                          children: state.artikel
+                          children: state.donasiNonDana
                               .map<Widget>((e) => (e.kategori ==
                                           KategoriDonasi.artikel &&
                                       e.status ==

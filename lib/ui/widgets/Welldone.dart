@@ -1,6 +1,7 @@
 import 'package:e_sharing/ui/pages/main_page.dart';
 import 'package:flutter/material.dart';
 import 'package:e_sharing/theme.dart';
+import 'package:get/get.dart';
 
 class Welldone extends StatelessWidget {
   const Welldone({Key? key}) : super(key: key);
@@ -73,11 +74,7 @@ class Welldone extends StatelessWidget {
                                           defaultPaddingLR,
                                       56)),
                               onPressed: () {
-                                Navigator.pushAndRemoveUntil(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => MainPage()),
-                                    (route) => false);
+                                Get.offAll(MainPage());
                               },
                               child: Text(
                                 'Beranda',

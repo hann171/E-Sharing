@@ -78,6 +78,7 @@ class RiwayatDonasiListItem extends StatelessWidget {
             ],
           ),
           Column(
+            crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Container(
                   height: 20,

@@ -1,7 +1,9 @@
 part of 'widgets.dart';
 
 class HomeButtonDonasi extends StatelessWidget {
-  const HomeButtonDonasi({Key? key}) : super(key: key);
+  final DonasiNonDana? donasiNonDana;
+
+  HomeButtonDonasi({this.donasiNonDana});
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +63,11 @@ class HomeButtonDonasi extends StatelessWidget {
               children: [
                 InkWell(
                   onTap: () {
-                    Get.to(DonasiBisnis());
+                    Get.to(DonasiBisnis(
+                        donasiNonDana: DonasiNonDana(
+                            donatur:
+                                (context.read<UserCubit>().state as UserLoaded)
+                                    .user)));
                   },
                   child: Row(
                     children: [
